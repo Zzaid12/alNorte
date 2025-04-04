@@ -225,4 +225,37 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Funcionalidad para dispositivos móviles
+    // Detectar si es un dispositivo móvil
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Ajustar comportamiento del menú interactivo en móviles
+        const menuItems = document.querySelectorAll('.item input[type="radio"]');
+        const menuLabels = document.querySelectorAll('.item label');
+        
+        menuLabels.forEach(label => {
+            label.addEventListener('click', function() {
+                // Asegurar que el contenido sea visible al hacer scroll
+                setTimeout(() => {
+                    const content = this.nextElementSibling;
+                    if (content && content.classList.contains('content')) {
+                        const offsetTop = content.offsetTop;
+                        window.scrollTo({
+                            top: offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            });
+        });
+        
+        // Ajustar la galería para dispositivos móviles
+        const gallery = document.querySelector('.gallery');
+        if (gallery) {
+            // Reducir la duración de la animación en móviles para mejor rendimiento
+            gallery.style.setProperty('--d', '8s');
+        }
+    }
 });

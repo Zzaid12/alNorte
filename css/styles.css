@@ -380,18 +380,51 @@ nav.scrolled .nav-links a {
     90% {z-index: 2}
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for gallery */
 @media (max-width: 768px) {
     .gallery {
         width: 300px;
         height: 400px;
+        margin: 0 auto;
+        overflow: visible;
+    }
+    
+    .gallery > img {
+        border-width: 10px;
+        max-width: 280px;
+        max-height: 280px;
+    }
+    
+    @keyframes slide {
+        10% {transform: translateX(80%) rotate(var(--r))}
+        0%,
+        20%,
+        100% {transform: translateX(0%) rotate(var(--r))}
     }
 }
 
 @media (max-width: 480px) {
+    .gallery-section {
+        padding: 3rem 0;
+    }
+    
     .gallery {
         width: 250px;
         height: 350px;
+        --d: 8s; /* duración más corta para móviles */
+    }
+    
+    .gallery > img {
+        border-width: 8px;
+        max-width: 230px;
+        max-height: 230px;
+    }
+    
+    @keyframes slide {
+        10% {transform: translateX(60%) rotate(var(--r))}
+        0%,
+        20%,
+        100% {transform: translateX(0%) rotate(var(--r))}
     }
 }
 
@@ -939,6 +972,11 @@ footer {
     animation: fadein 0.5s ease-in-out;
 }
 
+.item input[type="radio"]:checked ~ label {
+    opacity: 1;
+    font-weight: bold;
+}
+
 @keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
@@ -988,6 +1026,164 @@ footer {
     height: 100%;
     flex-grow: 3;
     position: relative;
+}
+
+/* Responsive adjustments for interactive menu */
+@media (max-width: 1024px) {
+    #scene {
+        width: 90%;
+        height: 450px;
+    }
+    
+    #left-zone {
+        width: 300px;
+    }
+    
+    .item input[type="radio"] ~ .content {
+        left: 300px;
+        width: calc(100% - 300px);
+    }
+}
+
+@media (max-width: 768px) {
+    .interactive-menu-section {
+        padding: 3rem 0;
+    }
+    
+    #scene {
+        flex-direction: column;
+        height: auto;
+        min-height: 700px;
+        width: 95%;
+        max-width: 500px;
+    }
+    
+    #left-zone {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        z-index: 1;
+        padding: 10px 0;
+    }
+    
+    .item {
+        border-bottom: 1px solid #f5f5f5;
+    }
+    
+    .item:last-child {
+        border-bottom: none;
+    }
+    
+    .item input[type="radio"] ~ label {
+        text-align: left;
+        height: 60px;
+        line-height: 60px;
+        font-size: 16px;
+    }
+    
+    .item input[type="radio"] ~ .content {
+        position: static;
+        left: auto;
+        top: auto;
+        width: 100%;
+        height: auto;
+        display: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    
+    .item input[type="radio"]:checked ~ .content {
+        display: block;
+    }
+    
+    .content-inner {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    .content-text {
+        max-width: 100%;
+        order: 2;
+        padding: 20px 10px 10px 10px;
+    }
+    
+    .content-image {
+        order: 1;
+        padding: 10px;
+        width: 100%;
+    }
+    
+    .content-image img {
+        max-height: 200px;
+        width: auto;
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    /* Corregir colores y bordes en móvil */
+    .item input[type="radio"]:checked ~ label.label_entrantes {
+        border-right: none;
+        border-left: solid 4px #600d0d;
+    }
+    
+    .item input[type="radio"]:checked ~ label.label_principales {
+        border-right: none;
+        border-left: solid 4px #1f2b21;
+    }
+    
+    .item input[type="radio"]:checked ~ label.label_postres {
+        border-right: none;
+        border-left: solid 4px #8B4513;
+    }
+    
+    .item input[type="radio"]:checked ~ label.label_vinos {
+        border-right: none;
+        border-left: solid 4px #722F37;
+    }
+}
+
+@media (max-width: 480px) {
+    .interactive-menu-section {
+        padding: 2rem 0;
+    }
+    
+    #scene {
+        min-height: 600px;
+        width: 100%;
+        margin: 1rem auto;
+        box-shadow: none;
+    }
+    
+    .item input[type="radio"] ~ label {
+        font-size: 0.9rem;
+        padding-left: 50px;
+        height: 50px;
+        line-height: 50px;
+    }
+    
+    .label_entrantes:before,
+    .label_principales:before,
+    .label_postres:before,
+    .label_vinos:before {
+        width: 40px;
+        font-size: 18px;
+    }
+    
+    .content-image img {
+        max-height: 150px;
+    }
+    
+    .content h1 {
+        font-size: 1.5rem;
+        margin-top: 0;
+    }
+    
+    .content p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
 }
 
 /* Estilos específicos para cada categoría del menú */
@@ -1139,139 +1335,4 @@ footer {
     text-align: center;
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-    #scene {
-        width: 90%;
-        height: 450px;
-    }
-    
-    #left-zone {
-        width: 300px;
-    }
-    
-    .item input[type="radio"] ~ .content {
-        left: 300px;
-        width: calc(100% - 300px);
-    }
-}
-
-@media (max-width: 768px) {
-    #scene {
-        flex-direction: column;
-        height: auto;
-        min-height: 700px;
-        width: 95%;
-    }
-    
-    #left-zone {
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #eee;
-        z-index: 1;
-    }
-    
-    .item {
-        border-bottom: 1px solid #f5f5f5;
-    }
-    
-    .item:last-child {
-        border-bottom: none;
-    }
-    
-    .item input[type="radio"] ~ label {
-        text-align: left;
-        height: 60px;
-        line-height: 60px;
-    }
-    
-    .item input[type="radio"] ~ .content {
-        position: relative;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: auto;
-        display: none;
-        padding: 20px 0;
-    }
-    
-    .item input[type="radio"]:checked ~ .content {
-        display: block;
-    }
-    
-    .content-inner {
-        flex-direction: column;
-        padding: 10px;
-    }
-    
-    .content-text {
-        max-width: 100%;
-        order: 2;
-        padding: 20px 10px 10px 10px;
-    }
-    
-    .content-image {
-        order: 1;
-        padding: 10px;
-    }
-    
-    .content-image img {
-        max-height: 200px;
-    }
-    
-    /* Ajustes para la galería en móvil */
-    .gallery {
-        width: 300px;
-        height: 400px;
-    }
-    
-    .gallery > img {
-        border-width: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    #scene {
-        min-height: 600px;
-        width: 100%;
-        margin: 1rem auto;
-    }
-    
-    .item input[type="radio"] ~ label {
-        font-size: 0.9rem;
-        padding-left: 50px;
-        height: 50px;
-        line-height: 50px;
-    }
-    
-    .label_entrantes:before,
-    .label_principales:before,
-    .label_postres:before,
-    .label_vinos:before {
-        width: 40px;
-        font-size: 18px;
-    }
-    
-    .content-image img {
-        max-height: 150px;
-    }
-    
-    .content h1 {
-        font-size: 1.5rem;
-        margin-top: 0;
-    }
-    
-    .content p {
-        font-size: 0.9rem;
-        margin-bottom: 0;
-    }
-    
-    /* Ajustes adicionales para la galería en móviles pequeños */
-    .gallery {
-        width: 250px;
-        height: 350px;
-    }
 }

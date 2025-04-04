@@ -256,6 +256,49 @@ document.addEventListener('DOMContentLoaded', function() {
         if (gallery) {
             // Reducir la duración de la animación en móviles para mejor rendimiento
             gallery.style.setProperty('--d', '8s');
+            
+            // Ajustar el tamaño de las imágenes para evitar desbordamientos
+            const galleryImages = gallery.querySelectorAll('img');
+            galleryImages.forEach(img => {
+                img.style.maxWidth = '90%';
+                img.style.maxHeight = '90%';
+            });
         }
+        
+        // Ajustar el comportamiento del carrusel en móviles
+        const scene = document.getElementById('scene');
+        if (scene) {
+            // Asegurar que el contenido del menú interactivo se muestre correctamente
+            scene.style.overflow = 'visible';
+            
+            // Ajustar la altura del contenedor para evitar cortes
+            const contentElements = document.querySelectorAll('.content');
+            contentElements.forEach(content => {
+                content.addEventListener('transitionend', function() {
+                    if (this.offsetHeight > 0) {
+                        const parent = this.closest('#scene');
+                        if (parent) {
+                            parent.style.minHeight = (this.offsetHeight + 300) + 'px';
+                        }
+                    }
+                });
+            });
+        }
+        
+        // Corregir problemas de visualización en dispositivos móviles
+        window.addEventListener('resize', function() {
+            // Recalcular alturas y posiciones cuando cambia la orientación
+            if (scene) {
+                const activeContent = scene.querySelector('.content:not([style*="display: none"])');
+                if (activeContent) {
+                    scene.style.minHeight = (activeContent.offsetHeight + 300) + 'px';
+                }
+            }
+        });
+        
+        // Forzar recálculo inicial
+        setTimeout(() => {
+            window.dispatchEvent(new Event('resize'));
+        }, 500);
     }
 });

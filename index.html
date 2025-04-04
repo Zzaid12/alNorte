@@ -6,8 +6,9 @@
     <title>Al Norte - Restaurante</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/hero.jpg');">
@@ -31,15 +32,113 @@
         </div>
     </header>
 
+    <section class="gallery-section">
+        <div class="section-title">
+            <h2>Nuestros Platos</h2>
+            <div class="separator"></div>
+        </div>
+        <div class="gallery">
+            <img src="img/plato1.jpg" alt="Carpaccio de pulpo">
+            <img src="img/plato2.jpg" alt="Arroz meloso con bogavante">
+            <img src="img/plato3.jpg" alt="Solomillo de ternera">
+            <img src="img/plato4.jpg" alt="Tarta de queso">
+            <img src="img/restaurante.jpg" alt="Nuestro restaurante">
+        </div>
+    </section>
+
+    <section class="interactive-menu-section">
+        <div class="section-title">
+            <h2>Nuestra Carta</h2>
+            <div class="separator"></div>
+        </div>
+        <div id="scene">
+            <div id="left-zone">
+                <ul class="list">
+                    <li class="item">
+                        <input type="radio" id="radio_entrantes" name="menu_carousel" value="entrantes" checked>
+                        <label for="radio_entrantes" class="label_entrantes">Entrantes</label>
+                        <div class="content content_entrantes">
+                            <div class="content-inner">
+                                <div class="content-text">
+                                    <span class="picto"></span>
+                                    <h1>Entrantes</h1>
+                                    <p>Deliciosos entrantes para compartir, elaborados con ingredientes frescos y de temporada. Nuestra selección incluye carpaccio de pulpo, croquetas caseras y ensalada de burrata.</p>
+                                </div>
+                                <div class="content-image">
+                                    <img src="img/plato1.jpg" alt="Entrantes">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <input type="radio" id="radio_principales" name="menu_carousel" value="principales">
+                        <label for="radio_principales" class="label_principales">Principales</label>
+                        <div class="content content_principales">
+                            <div class="content-inner">
+                                <div class="content-text">
+                                    <span class="picto"></span>
+                                    <h1>Principales</h1>
+                                    <p>Platos principales elaborados con las mejores materias primas. Destacan nuestro arroz meloso con bogavante, el solomillo de ternera y el bacalao confitado.</p>
+                                </div>
+                                <div class="content-image">
+                                    <img src="img/plato2.jpg" alt="Principales">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <input type="radio" id="radio_postres" name="menu_carousel" value="postres">
+                        <label for="radio_postres" class="label_postres">Postres</label>
+                        <div class="content content_postres">
+                            <div class="content-inner">
+                                <div class="content-text">
+                                    <span class="picto"></span>
+                                    <h1>Postres</h1>
+                                    <p>Dulce final para una experiencia gastronómica completa. No te pierdas nuestra famosa tarta de queso, el coulant de chocolate o el sorbete de limón al cava.</p>
+                                </div>
+                                <div class="content-image">
+                                    <img src="img/plato4.jpg" alt="Postres">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <input type="radio" id="radio_vinos" name="menu_carousel" value="vinos">
+                        <label for="radio_vinos" class="label_vinos">Vinos</label>
+                        <div class="content content_vinos">
+                            <div class="content-inner">
+                                <div class="content-text">
+                                    <span class="picto"></span>
+                                    <h1>Vinos</h1>
+                                    <p>Amplia selección de vinos nacionales e internacionales para acompañar perfectamente cada plato. Consulta con nuestro sumiller para encontrar la mejor opción.</p>
+                                </div>
+                                <div class="content-image">
+                                    <img src="img/plato3.jpg" alt="Vinos">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="middle-border"></div>
+            <div id="right-zone"></div>
+        </div>
+    </section>
+
     <section id="menu" class="menu-section">
         <div class="section-title">
             <h2>Nuestro Menú</h2>
             <div class="separator"></div>
         </div>
         
+        <div class="menu-tabs">
+            <button class="menu-tab active" data-category="entrantes">Entrantes</button>
+            <button class="menu-tab" data-category="principales">Principales</button>
+            <button class="menu-tab" data-category="postres">Postres</button>
+        </div>
+        
         <div class="menu-container">
-            <div class="menu-category">
-                <h3>Entrantes</h3>
+            <div class="menu-category active" id="entrantes">
                 <div class="menu-items">
                     <div class="menu-item" data-aos="fade-up">
                         <div class="menu-item-info">
@@ -65,8 +164,7 @@
                 </div>
             </div>
 
-            <div class="menu-category">
-                <h3>Principales</h3>
+            <div class="menu-category" id="principales">
                 <div class="menu-items">
                     <div class="menu-item" data-aos="fade-up">
                         <div class="menu-item-info">
@@ -92,8 +190,7 @@
                 </div>
             </div>
 
-            <div class="menu-category">
-                <h3>Postres</h3>
+            <div class="menu-category" id="postres">
                 <div class="menu-items">
                     <div class="menu-item" data-aos="fade-up">
                         <div class="menu-item-info">
@@ -110,27 +207,6 @@
                         <div class="menu-item-price">8€</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <div class="section-title">
-            <h2>Nuestros Platos</h2>
-            <div class="separator"></div>
-        </div>
-        <div class="gallery-container">
-            <div class="gallery-item" data-aos="zoom-in">
-                <img src="img/plato1.jpg" alt="Plato 1">
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                <img src="img/plato2.jpg" alt="Plato 2">
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                <img src="img/plato3.jpg" alt="Plato 3">
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                <img src="img/plato4.jpg" alt="Plato 4">
             </div>
         </div>
     </section>

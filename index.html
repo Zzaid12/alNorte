@@ -15,7 +15,7 @@
         <nav>
             <div class="logo">Al Norte</div>
             <div class="nav-links">
-                <a href="#menu">Menú</a>
+                <a href="#carta">Carta</a>
                 <a href="#historia">Historia</a>
                 <a href="#contacto">Contacto</a>
             </div>
@@ -32,180 +32,142 @@
         </div>
     </header>
 
-    <section class="gallery-section">
-        <div class="section-title">
-            <h2>Nuestros Platos</h2>
-            <div class="separator"></div>
-        </div>
-        <div class="gallery">
-            <img src="img/plato1.jpg" alt="Carpaccio de pulpo">
-            <img src="img/plato2.jpg" alt="Arroz meloso con bogavante">
-            <img src="img/plato3.jpg" alt="Solomillo de ternera">
-            <img src="img/plato4.jpg" alt="Tarta de queso">
-            <img src="img/restaurante.jpg" alt="Nuestro restaurante">
-        </div>
-    </section>
-
-    <section class="interactive-menu-section">
+    <section id="carta" class="carta-section">
         <div class="section-title">
             <h2>Nuestra Carta</h2>
             <div class="separator"></div>
         </div>
-        <div id="scene">
-            <div id="left-zone">
-                <ul class="list">
-                    <li class="item">
-                        <input type="radio" id="radio_entrantes" name="menu_carousel" value="entrantes" checked>
-                        <label for="radio_entrantes" class="label_entrantes">Entrantes</label>
-                        <div class="content content_entrantes">
-                            <div class="content-inner">
-                                <div class="content-text">
-                                    <span class="picto"></span>
-                                    <h1>Entrantes</h1>
-                                    <p>Deliciosos entrantes para compartir, elaborados con ingredientes frescos y de temporada. Nuestra selección incluye carpaccio de pulpo, croquetas caseras y ensalada de burrata.</p>
-                                </div>
-                                <div class="content-image">
-                                    <img src="img/plato1.jpg" alt="Entrantes">
-                                </div>
+        
+        <div class="carta-layout">
+            <div class="carta-menu">
+                <div class="carta-tabs">
+                    <button class="carta-tab active" data-categoria="platos">Platos</button>
+                    <button class="carta-tab" data-categoria="postres">Postres</button>
+                    <button class="carta-tab" data-categoria="vinos">Vinos</button>
+                </div>
+                
+                <div class="carta-container">
+                    <div class="carta-categoria active" id="platos">
+                        <div class="carta-items">
+                            <div class="carta-item">
+                                <h4>Carpaccio de pulpo</h4>
+                                <p>Pulpo laminado con aceite de oliva virgen extra, pimentón y sal marina</p>
+                                <span class="carta-item-precio">14€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Arroz meloso con bogavante</h4>
+                                <p>Arroz cremoso cocinado con bogavante fresco y fumé marino</p>
+                                <span class="carta-item-precio">24€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Solomillo de ternera</h4>
+                                <p>Solomillo de ternera con reducción de vino tinto y patatas confitadas</p>
+                                <span class="carta-item-precio">22€</span>
                             </div>
                         </div>
-                    </li>
-                    <li class="item">
-                        <input type="radio" id="radio_principales" name="menu_carousel" value="principales">
-                        <label for="radio_principales" class="label_principales">Principales</label>
-                        <div class="content content_principales">
-                            <div class="content-inner">
-                                <div class="content-text">
-                                    <span class="picto"></span>
-                                    <h1>Principales</h1>
-                                    <p>Platos principales elaborados con las mejores materias primas. Destacan nuestro arroz meloso con bogavante, el solomillo de ternera y el bacalao confitado.</p>
-                                </div>
-                                <div class="content-image">
-                                    <img src="img/plato2.jpg" alt="Principales">
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <input type="radio" id="radio_postres" name="menu_carousel" value="postres">
-                        <label for="radio_postres" class="label_postres">Postres</label>
-                        <div class="content content_postres">
-                            <div class="content-inner">
-                                <div class="content-text">
-                                    <span class="picto"></span>
-                                    <h1>Postres</h1>
-                                    <p>Dulce final para una experiencia gastronómica completa. No te pierdas nuestra famosa tarta de queso, el coulant de chocolate o el sorbete de limón al cava.</p>
-                                </div>
-                                <div class="content-image">
-                                    <img src="img/plato4.jpg" alt="Postres">
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <input type="radio" id="radio_vinos" name="menu_carousel" value="vinos">
-                        <label for="radio_vinos" class="label_vinos">Vinos</label>
-                        <div class="content content_vinos">
-                            <div class="content-inner">
-                                <div class="content-text">
-                                    <span class="picto"></span>
-                                    <h1>Vinos</h1>
-                                    <p>Amplia selección de vinos nacionales e internacionales para acompañar perfectamente cada plato. Consulta con nuestro sumiller para encontrar la mejor opción.</p>
-                                </div>
-                                <div class="content-image">
-                                    <img src="img/plato3.jpg" alt="Vinos">
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div id="middle-border"></div>
-            <div id="right-zone"></div>
-        </div>
-    </section>
+                    </div>
 
-    <section id="menu" class="menu-section">
-        <div class="section-title">
-            <h2>Nuestro Menú</h2>
-            <div class="separator"></div>
-        </div>
-        
-        <div class="menu-tabs">
-            <button class="menu-tab active" data-category="entrantes">Entrantes</button>
-            <button class="menu-tab" data-category="principales">Principales</button>
-            <button class="menu-tab" data-category="postres">Postres</button>
-        </div>
-        
-        <div class="menu-container">
-            <div class="menu-category active" id="entrantes">
-                <div class="menu-items">
-                    <div class="menu-item" data-aos="fade-up">
-                        <div class="menu-item-info">
-                            <h4>Carpaccio de pulpo</h4>
-                            <p>Pulpo laminado con aceite de oliva virgen extra, pimentón y sal marina</p>
+                    <div class="carta-categoria" id="postres">
+                        <div class="carta-items">
+                            <div class="carta-item">
+                                <h4>Tarta de queso</h4>
+                                <p>Cremosa tarta de queso horneada con base de galleta</p>
+                                <span class="carta-item-precio">7€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Coulant de chocolate</h4>
+                                <p>Bizcocho de chocolate con corazón líquido y helado de vainilla</p>
+                                <span class="carta-item-precio">8€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Tiramisú casero</h4>
+                                <p>Postre italiano con café, mascarpone y cacao</p>
+                                <span class="carta-item-precio">7€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Arroz con leche</h4>
+                                <p>Arroz con leche casero con canela y piel de limón</p>
+                                <span class="carta-item-precio">6€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Natillas de vainilla</h4>
+                                <p>Natillas cremosas con vainilla de Madagascar</p>
+                                <span class="carta-item-precio">6€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Torrijas</h4>
+                                <p>Torrijas caseras con canela y miel</p>
+                                <span class="carta-item-precio">7€</span>
+                            </div>
                         </div>
-                        <div class="menu-item-price">14€</div>
                     </div>
-                    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="menu-item-info">
-                            <h4>Croquetas caseras</h4>
-                            <p>Cremosas croquetas de jamón ibérico</p>
+
+                    <div class="carta-categoria" id="vinos">
+                        <div class="carta-items">
+                            <div class="carta-item">
+                                <h4>Vino tinto reserva</h4>
+                                <p>Vino tinto reserva de la región, añada 2018</p>
+                                <span class="carta-item-precio">32€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Vino blanco</h4>
+                                <p>Vino blanco afrutado, añada 2020</p>
+                                <span class="carta-item-precio">28€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Vino rosado</h4>
+                                <p>Vino rosado fresco, añada 2021</p>
+                                <span class="carta-item-precio">26€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Vino tinto crianza</h4>
+                                <p>Vino tinto crianza, añada 2019</p>
+                                <span class="carta-item-precio">26€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Vino blanco fermentado en barrica</h4>
+                                <p>Vino blanco fermentado en barrica de roble, añada 2017</p>
+                                <span class="carta-item-precio">30€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Vino tinto gran reserva</h4>
+                                <p>Vino tinto gran reserva, añada 2015</p>
+                                <span class="carta-item-precio">45€</span>
+                            </div>
                         </div>
-                        <div class="menu-item-price">9€</div>
-                    </div>
-                    <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="menu-item-info">
-                            <h4>Ensalada del norte</h4>
-                            <p>Mezcla de lechugas, tomate, cebolla, aguacate y vinagreta especial</p>
-                        </div>
-                        <div class="menu-item-price">11€</div>
                     </div>
                 </div>
             </div>
-
-            <div class="menu-category" id="principales">
-                <div class="menu-items">
-                    <div class="menu-item" data-aos="fade-up">
-                        <div class="menu-item-info">
-                            <h4>Arroz meloso con bogavante</h4>
-                            <p>Arroz cremoso cocinado con bogavante fresco y fumé marino</p>
+            
+            <div class="carta-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <div class="carousel-slide" data-categoria="platos">
+                            <img src="img/plato1.jpg" alt="Carpaccio de pulpo">
                         </div>
-                        <div class="menu-item-price">24€</div>
-                    </div>
-                    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="menu-item-info">
-                            <h4>Solomillo de ternera</h4>
-                            <p>Solomillo de ternera con reducción de vino tinto y patatas confitadas</p>
+                        <div class="carousel-slide" data-categoria="platos">
+                            <img src="img/plato2.jpg" alt="Arroz meloso con bogavante">
                         </div>
-                        <div class="menu-item-price">22€</div>
-                    </div>
-                    <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="menu-item-info">
-                            <h4>Lubina a la sal</h4>
-                            <p>Lubina fresca cocinada en costra de sal marina</p>
+                        <div class="carousel-slide" data-categoria="postres">
+                            <img src="img/plato3.jpg" alt="Solomillo de ternera">
                         </div>
-                        <div class="menu-item-price">20€</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-category" id="postres">
-                <div class="menu-items">
-                    <div class="menu-item" data-aos="fade-up">
-                        <div class="menu-item-info">
-                            <h4>Tarta de queso</h4>
-                            <p>Cremosa tarta de queso horneada con base de galleta</p>
+                        <div class="carousel-slide" data-categoria="postres">
+                            <img src="img/restaurante.jpg" alt="Solomillo de ternera">
                         </div>
-                        <div class="menu-item-price">7€</div>
-                    </div>
-                    <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="menu-item-info">
-                            <h4>Coulant de chocolate</h4>
-                            <p>Bizcocho de chocolate con corazón líquido y helado de vainilla</p>
+                        <div class="carousel-slide" data-categoria="vinos">
+                            <img src="img/plato4.jpg" alt="Tarta de queso">
                         </div>
-                        <div class="menu-item-price">8€</div>
+                        <div class="carousel-slide" data-categoria="vinos">
+                            <img src="img/restaurante.jpg" alt="Solomillo de ternera">
+                        </div>
                     </div>
+                    <button class="carousel-button prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-button next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-indicators"></div>
                 </div>
             </div>
         </div>
@@ -311,5 +273,6 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/carta.js"></script>
 </body>
 </html>

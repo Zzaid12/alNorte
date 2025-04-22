@@ -1,155 +1,91 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Funcionalidad de las pestañas de la carta
-    const tabs = document.querySelectorAll('.carta-tab');
-    const categorias = document.querySelectorAll('.carta-categoria');
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
-    let autoSlideInterval;
-    const AUTO_SLIDE_INTERVAL = 5000; // 5 segundos entre cambios
-
-    function mostrarCategoria(categoria) {
-        // Detener el intervalo automático actual
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-        }
-
-        // Ocultar todas las categorías
-        categorias.forEach(cat => {
-            cat.classList.remove('active');
-        });
-        
-        // Mostrar la categoría seleccionada
-        document.getElementById(categoria).classList.add('active');
-
-        // Actualizar las pestañas activas
-        tabs.forEach(tab => {
-            tab.classList.remove('active');
-            if (tab.dataset.categoria === categoria) {
-                tab.classList.add('active');
-            }
-        });
-
-        // Actualizar el carrusel
-        actualizarCarrusel(categoria);
+document.addEventListener("DOMContentLoaded", () => {
+    // Manejo de pestañas de la carta
+    const cartaTabs = document.querySelectorAll(".carta-tab")
+    const cartaCategorias = document.querySelectorAll(".carta-categoria")
+  
+    cartaTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        // Remover clase active de todas las pestañas
+        cartaTabs.forEach((t) => t.classList.remove("active"))
+        // Añadir clase active a la pestaña clickeada
+        tab.classList.add("active")
+  
+        // Mostrar la categoría correspondiente
+        const categoria = tab.dataset.categoria
+        cartaCategorias.forEach((cat) => {
+          if (cat.id === categoria) {
+            cat.classList.add("active")
+          } else {
+            cat.classList.remove("active")
+          }
+        })
+  
+        // Actualizar carrusel para mostrar imágenes de la categoría seleccionada
+        actualizarCarrusel(categoria)
+      })
+    })
+  
+    // Carrusel de imágenes
+    const slides = document.querySelectorAll(".carousel-slide")
+    const prevBtn = document.querySelector(".carousel-button.prev")
+    const nextBtn = document.querySelector(".carousel-button.next")
+    const indicators = document.querySelector(".carousel-indicators")
+  
+    let activeSlideIndex = 0
+    let slidesFiltered = []
+  
+    // Crear indicadores para el carrusel
+    function crearIndicadores() {
+      indicators.innerHTML = ""
+      slidesFiltered.forEach((_, index) => {
+        const dot = document.createElement("span")
+        dot.classList.add("carousel-dot")
+        if (index === 0) dot.classList.add("active")
+        dot.addEventListener("click", () => {
+          mostrarSlide(index)
+        })
+        indicators.appendChild(dot)
+      })
     }
-
+  
+    // Mostrar slide específico
+    function mostrarSlide(index) {
+      slidesFiltered.forEach((slide) => slide.classList.remove("active"))
+      document.querySelectorAll(".carousel-dot").forEach((dot) => dot.classList.remove("active"))
+  
+      activeSlideIndex = index
+      slidesFiltered[activeSlideIndex].classList.add("active")
+      document.querySelectorAll(".carousel-dot")[activeSlideIndex].classList.add("active")
+    }
+  
+    // Actualizar carrusel según la categoría
     function actualizarCarrusel(categoria) {
-        // Ocultar todos los slides
-        slides.forEach(slide => {
-            slide.style.display = 'none';
-            slide.classList.remove('active', 'fade-in', 'fade-out');
-        });
-
-        // Mostrar solo los slides de la categoría actual
-        const slidesCategoria = document.querySelectorAll(`.carousel-slide[data-categoria="${categoria}"]`);
-        if (slidesCategoria.length > 0) {
-            currentSlide = 0;
-            slidesCategoria[0].style.display = 'block';
-            slidesCategoria[0].classList.add('active', 'fade-in');
-            actualizarIndicadores(slidesCategoria);
-            
-            // Iniciar el cambio automático
-            iniciarAutoSlide(slidesCategoria);
-        }
+      slidesFiltered = Array.from(slides).filter((slide) => slide.dataset.categoria === categoria)
+  
+      // Ocultar todos los slides
+      slides.forEach((slide) => slide.classList.remove("active"))
+  
+      // Si hay slides para esta categoría
+      if (slidesFiltered.length > 0) {
+        activeSlideIndex = 0
+        slidesFiltered[activeSlideIndex].classList.add("active")
+        crearIndicadores()
+      }
     }
-
-    function actualizarIndicadores(slidesCategoria) {
-        const indicators = document.querySelector('.carousel-indicators');
-        indicators.innerHTML = '';
-        
-        slidesCategoria.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (index === currentSlide) {
-                dot.classList.add('active');
-            }
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                actualizarSlide(slidesCategoria);
-                resetAutoSlide(slidesCategoria);
-            });
-            indicators.appendChild(dot);
-        });
-    }
-
-    function actualizarSlide(slidesCategoria) {
-        const currentActiveSlide = document.querySelector('.carousel-slide.active');
-        const nextSlide = slidesCategoria[currentSlide];
-
-        if (currentActiveSlide) {
-            currentActiveSlide.classList.add('fade-out');
-            currentActiveSlide.classList.remove('fade-in');
-        }
-
-        setTimeout(() => {
-            slidesCategoria.forEach((slide, index) => {
-                slide.style.display = index === currentSlide ? 'block' : 'none';
-                if (index === currentSlide) {
-                    slide.classList.add('active', 'fade-in');
-                    slide.classList.remove('fade-out');
-                } else {
-                    slide.classList.remove('active', 'fade-in', 'fade-out');
-                }
-            });
-
-            const dots = document.querySelectorAll('.carousel-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }, 400);
-    }
-
-    function siguienteSlide(slidesCategoria) {
-        currentSlide = (currentSlide + 1) % slidesCategoria.length;
-        actualizarSlide(slidesCategoria);
-    }
-
-    function anteriorSlide(slidesCategoria) {
-        currentSlide = (currentSlide - 1 + slidesCategoria.length) % slidesCategoria.length;
-        actualizarSlide(slidesCategoria);
-    }
-
-    function iniciarAutoSlide(slidesCategoria) {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-        }
-        autoSlideInterval = setInterval(() => {
-            siguienteSlide(slidesCategoria);
-        }, AUTO_SLIDE_INTERVAL);
-    }
-
-    function resetAutoSlide(slidesCategoria) {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-        }
-        iniciarAutoSlide(slidesCategoria);
-    }
-
-    // Event listeners para las pestañas
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            mostrarCategoria(tab.dataset.categoria);
-        });
-    });
-
-    // Event listeners para los botones del carrusel
-    const prevButton = document.querySelector('.carousel-button.prev');
-    const nextButton = document.querySelector('.carousel-button.next');
-
-    prevButton.addEventListener('click', () => {
-        const categoriaActual = document.querySelector('.carta-tab.active').dataset.categoria;
-        const slidesCategoria = document.querySelectorAll(`.carousel-slide[data-categoria="${categoriaActual}"]`);
-        anteriorSlide(slidesCategoria);
-        resetAutoSlide(slidesCategoria);
-    });
-
-    nextButton.addEventListener('click', () => {
-        const categoriaActual = document.querySelector('.carta-tab.active').dataset.categoria;
-        const slidesCategoria = document.querySelectorAll(`.carousel-slide[data-categoria="${categoriaActual}"]`);
-        siguienteSlide(slidesCategoria);
-        resetAutoSlide(slidesCategoria);
-    });
-
-    // Iniciar con la primera categoría
-    mostrarCategoria('platos');
-}); 
+  
+    // Event listeners para botones de navegación
+    prevBtn.addEventListener("click", () => {
+      activeSlideIndex = (activeSlideIndex - 1 + slidesFiltered.length) % slidesFiltered.length
+      mostrarSlide(activeSlideIndex)
+    })
+  
+    nextBtn.addEventListener("click", () => {
+      activeSlideIndex = (activeSlideIndex + 1) % slidesFiltered.length
+      mostrarSlide(activeSlideIndex)
+    })
+  
+    // Inicializar carrusel con la primera categoría activa
+    const categoriaInicial = document.querySelector(".carta-tab.active").dataset.categoria
+    actualizarCarrusel(categoriaInicial)
+  })
+  

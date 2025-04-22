@@ -21,10 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+    const navOverlay = document.querySelector('.nav-overlay');
     
     mobileMenuBtn.addEventListener('click', function() {
         mobileMenuBtn.classList.toggle('active');
         navLinks.classList.toggle('active');
+        body.classList.toggle('menu-open');
     });
 
     // Close mobile menu when clicking on a link
@@ -33,57 +36,15 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             mobileMenuBtn.classList.remove('active');
             navLinks.classList.remove('active');
+            body.classList.remove('menu-open');
         });
     });
 
-    // Reservation modal
-    const reservationBtn = document.querySelector('.btn-reserva');
-    const reservationModal = document.querySelector('.reservation-modal');
-    const closeModal = document.querySelector('.close-modal');
-    
-    reservationBtn.addEventListener('click', function() {
-        reservationModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-    
-    closeModal.addEventListener('click', function() {
-        reservationModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-    
-    // Close modal when clicking outside
-    reservationModal.addEventListener('click', function(e) {
-        if (e.target === reservationModal) {
-            reservationModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Form submission
-    const reservationForm = document.getElementById('reservation-form');
-    
-    reservationForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Here you would normally send the form data to a server
-        // For now, we'll just show a success message
-        
-        const formData = new FormData(reservationForm);
-        let formValues = {};
-        
-        for (let [key, value] of formData.entries()) {
-            formValues[key] = value;
-        }
-        
-        console.log('Form submitted:', formValues);
-        
-        // Show success message (in a real application, this would happen after successful submission)
-        alert('¡Reserva realizada con éxito! Te contactaremos pronto para confirmar.');
-        
-        // Close modal and reset form
-        reservationModal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-        reservationForm.reset();
+    // Close mobile menu when clicking on overlay
+    navOverlay.addEventListener('click', function() {
+        mobileMenuBtn.classList.remove('active');
+        navLinks.classList.remove('active');
+        body.classList.remove('menu-open');
     });
 
     // Smooth scrolling for anchor links

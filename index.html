@@ -11,12 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/hero.jpg');">
+    <div class="nav-overlay"></div>
+    <header class="hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-bg" style="background-image: url('img/hero.jpg');"></div>
         <nav>
             <div class="logo">Al Norte</div>
             <div class="nav-links">
                 <a href="#carta">Carta</a>
                 <a href="#historia">Historia</a>
+                <a href="#musica">Música</a>
                 <a href="#contacto">Contacto</a>
             </div>
             <div class="mobile-menu-btn">
@@ -26,9 +30,16 @@
             </div>
         </nav>
         <div class="hero-content">
-            <h1>Al Norte</h1>
-            <p>Experiencia gastronómica única</p>
-            <button class="btn-reserva">Reservar ahora</button>
+            <div class="hero-content-inner">
+                <h1>Al Norte</h1>
+                <div class="hero-separator"></div>
+                <p class="hero-tagline">Experiencia gastronómica única</p>
+                <p class="hero-description">Sabores del norte con un toque contemporáneo</p>
+                <div class="hero-buttons">
+                    <a href="tel:+34666320632" class="btn-reserva">Reservar mesa</a>
+                    <a href="#carta" class="btn-secondary">Ver carta</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -39,106 +50,6 @@
         </div>
         
         <div class="carta-layout">
-            <div class="carta-menu">
-                <div class="carta-tabs">
-                    <button class="carta-tab active" data-categoria="platos">Platos</button>
-                    <button class="carta-tab" data-categoria="postres">Postres</button>
-                    <button class="carta-tab" data-categoria="vinos">Vinos</button>
-                </div>
-                
-                <div class="carta-container">
-                    <div class="carta-categoria active" id="platos">
-                        <div class="carta-items">
-                            <div class="carta-item">
-                                <h4>Carpaccio de pulpo</h4>
-                                <p>Pulpo laminado con aceite de oliva virgen extra, pimentón y sal marina</p>
-                                <span class="carta-item-precio">14€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Arroz meloso con bogavante</h4>
-                                <p>Arroz cremoso cocinado con bogavante fresco y fumé marino</p>
-                                <span class="carta-item-precio">24€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Solomillo de ternera</h4>
-                                <p>Solomillo de ternera con reducción de vino tinto y patatas confitadas</p>
-                                <span class="carta-item-precio">22€</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carta-categoria" id="postres">
-                        <div class="carta-items">
-                            <div class="carta-item">
-                                <h4>Tarta de queso</h4>
-                                <p>Cremosa tarta de queso horneada con base de galleta</p>
-                                <span class="carta-item-precio">7€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Coulant de chocolate</h4>
-                                <p>Bizcocho de chocolate con corazón líquido y helado de vainilla</p>
-                                <span class="carta-item-precio">8€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Tiramisú casero</h4>
-                                <p>Postre italiano con café, mascarpone y cacao</p>
-                                <span class="carta-item-precio">7€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Arroz con leche</h4>
-                                <p>Arroz con leche casero con canela y piel de limón</p>
-                                <span class="carta-item-precio">6€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Natillas de vainilla</h4>
-                                <p>Natillas cremosas con vainilla de Madagascar</p>
-                                <span class="carta-item-precio">6€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Torrijas</h4>
-                                <p>Torrijas caseras con canela y miel</p>
-                                <span class="carta-item-precio">7€</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carta-categoria" id="vinos">
-                        <div class="carta-items">
-                            <div class="carta-item">
-                                <h4>Vino tinto reserva</h4>
-                                <p>Vino tinto reserva de la región, añada 2018</p>
-                                <span class="carta-item-precio">32€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Vino blanco</h4>
-                                <p>Vino blanco afrutado, añada 2020</p>
-                                <span class="carta-item-precio">28€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Vino rosado</h4>
-                                <p>Vino rosado fresco, añada 2021</p>
-                                <span class="carta-item-precio">26€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Vino tinto crianza</h4>
-                                <p>Vino tinto crianza, añada 2019</p>
-                                <span class="carta-item-precio">26€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Vino blanco fermentado en barrica</h4>
-                                <p>Vino blanco fermentado en barrica de roble, añada 2017</p>
-                                <span class="carta-item-precio">30€</span>
-                            </div>
-                            <div class="carta-item">
-                                <h4>Vino tinto gran reserva</h4>
-                                <p>Vino tinto gran reserva, añada 2015</p>
-                                <span class="carta-item-precio">45€</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <div class="carta-carousel">
                 <div class="carousel-container">
                     <div class="carousel-track">
@@ -170,6 +81,212 @@
                     <div class="carousel-indicators"></div>
                 </div>
             </div>
+            
+            <div class="carta-menu carta-menu-full">
+                <div class="tabs-container">
+                    <div class="carta-tabs">
+                        <button class="carta-tab active" data-categoria="platos">Platos</button>
+                        <button class="carta-tab" data-categoria="postres">Postres</button>
+                        <button class="carta-tab" data-categoria="vinos">Vinos</button>
+                    </div>
+                </div>
+                
+                <div class="carta-container">
+                    <div class="carta-categoria active" id="platos">
+                        <div class="carta-items">
+                            <div class="carta-item">
+                                <h4>Sopa de cebolla</h4>
+                                <span class="carta-item-precio">9,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Cremita de calabaza asada</h4>
+                                <span class="carta-item-precio">10,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Hongos glaseados con crema de patata</h4>
+                                <span class="carta-item-precio">15,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Torrija de tomate con sardina ahumada</h4>
+                                <span class="carta-item-precio">16,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Buñuelos de bacalao</h4>
+                                <span class="carta-item-precio">12,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Saam  de gambón (3 unidades)</h4>
+                                <span class="carta-item-precio">15,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Rollito de primavera crujiente</h4>
+                                <span class="carta-item-precio">16,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Brioche de manitas (picante)</h4>
+                                <span class="carta-item-precio">7,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Chipirones salteados</h4>
+                                <span class="carta-item-precio">16,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Bacalao con suquet de bogavantes</h4>
+                                <span class="carta-item-precio">18,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Cordero con migas Garam Masala</h4>
+                                <span class="carta-item-precio">25,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Guiso de ossobuco sobre arroz basmati</h4>
+                                <span class="carta-item-precio">21,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Tartar de pato japo</h4>
+                                <span class="carta-item-precio">20,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Carrillera oriental</h4>
+                                <span class="carta-item-precio">16,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Yogurt de foie (2 unidades)</h4>
+                                <span class="carta-item-precio">24,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Codillo de cerdo al horno</h4>
+                                <span class="carta-item-precio">18,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Gyozas (Vegetales, pato o pollo)</h4>
+                                <span class="carta-item-precio">12,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Pan bao de ternera estofada</h4>
+                                <span class="carta-item-precio">5,90€ unidad</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Samosas</h4>
+                                <span class="carta-item-precio">10,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Tacos de alitas BBQ (2 unidades)</h4>
+                                <span class="carta-item-precio">16,90€</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="carta-categoria" id="postres">
+                        <div class="carta-items">
+                            <div class="carta-item">
+                                <h4>Yogurt y violetas</h4>
+                                <span class="carta-item-precio">5,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Tatin con crema inglesa</h4>
+                                <span class="carta-item-precio">5,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Tarta de queso</h4>
+                                <span class="carta-item-precio">6,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Frambuesa y chocolate (Homenaje a heladería Copelia, La Habana)</h4>
+                                <span class="carta-item-precio">6,90€</span>
+                            </div>
+                            <div class="carta-item">
+                                <h4>Tiempo de cítricos</h4>
+                                <span class="carta-item-precio">6,90€</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carta-categoria" id="vinos">
+                        <div class="vinos-grid">
+                            <!-- Columna Espumosos -->
+                            <div class="vinos-columna">
+                                <div class="categoria-titulo">
+                                    <h3>Espumosos</h3>
+                                </div>
+                                <div class="carta-items">
+                                    <div class="carta-item">
+                                        <h4>Vía de la Plata Brut Nature</h4>
+                                        <span class="carta-item-precio">16,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Roger Goulart Brut Nature Reserva</h4>
+                                        <span class="carta-item-precio">20,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Gramona La Cuvée Brut (D.O. Corpinnat)</h4>
+                                        <span class="carta-item-precio">24,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Champagne Veuve Clicquot</h4>
+                                        <span class="carta-item-precio">65€</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Columna Tintos -->
+                            <div class="vinos-columna">
+                                <div class="categoria-titulo">
+                                    <h3>Tintos</h3>
+                                </div>
+                                <div class="carta-items">
+                                    <div class="carta-item">
+                                        <h4>Buche Valle Del Raposo (Vino de Extremadura)</h4>
+                                        <div class="precio-container">
+                                            <span class="carta-item-precio">18,90€</span>
+                                            <span class="copa-precio">Copa 3€</span>
+                                        </div>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Pétalos del Bierzo (D.O. Bierzo)</h4>
+                                        <span class="carta-item-precio">28,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Pentateuco Basic 2020 (V.T. Extremadura)</h4>
+                                        <span class="carta-item-precio">21,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Antídoto (D.O. Ribera del Duero)</h4>
+                                        <span class="carta-item-precio">24,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>La Planta de Arzuaga (D.O. Ribera del Duero)</h4>
+                                        <div class="precio-container">
+                                            <span class="carta-item-precio">26,90€</span>
+                                            <span class="copa-precio">Copa 3€</span>
+                                        </div>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Roda (D.O. La Rioja)</h4>
+                                        <span class="carta-item-precio">35,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Sierra Cantabria (D.O. La Rioja)</h4>
+                                        <span class="carta-item-precio">22,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Pago de Capellanes (D.O. Ribera del Duero)</h4>
+                                        <span class="carta-item-precio">35,90€</span>
+                                    </div>
+                                    <div class="carta-item">
+                                        <h4>Artuke (D.O. La Rioja)</h4>
+                                        <div class="precio-container">
+                                            <span class="carta-item-precio">22,90€</span>
+                                            <span class="copa-precio">Copa 3€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -190,6 +307,46 @@
         </div>
     </section>
 
+    <section id="musica" class="musica-section">
+        <div class="section-title">
+            <h2>¿A qué suenan nuestros platos?</h2>
+            <div class="separator"></div>
+        </div>
+        <div class="musica-container">
+            <div class="reproductor">
+                <div class="reproductor-header">
+                    <h3>Playlist de Al Norte</h3>
+                    <p class="reproductor-desc">Descubre la música que inspira nuestros platos</p>
+                </div>
+                <div class="playlist">
+                    <div class="playlist-item" data-audio="audio/plato1.mp3">
+                        <div class="track-info">
+                            <div class="track-details">
+                                <h4>Nuestro Himno</h4>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <span class="track-duration">4:08</span>
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    
+                    </div>
+                </div>
+                <div class="reproductor-footer">
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="time-info">
+                        <span class="current-time">0:00</span>
+                        <span class="total-time">0:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contacto" class="contacto-section">
         <div class="section-title">
             <h2>Contacto</h2>
@@ -199,11 +356,11 @@
             <div class="contacto-info" data-aos="fade-up">
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
-                    <p>Calle Mayor 123, 28001 Madrid</p>
+                    <p>Av. Soledad Vega Ortiz, 125, 10450 Jarandilla de la Vera, Cáceres</p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone"></i>
-                    <p>+34 912 345 678</p>
+                    <p>+34 666 32 06 32</p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
@@ -211,58 +368,19 @@
                 </div>
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
-                    <p>Martes a Domingo: 13:00 - 16:00 | 20:00 - 23:30</p>
-                    <p>Lunes: Cerrado</p>
-                </div>
-                <div class="social-media">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <div class="horario-container">
+                        <p><strong>Viernes:</strong> 13:30 - 15:30 | 20:30 - 22:30</p>
+                        <p><strong>Sábado:</strong> 13:30 - 15:30 | 20:30 - 22:30</p>
+                        <p><strong>Domingo:</strong> 13:30 - 15:30</p>
+                        <p><strong>Lunes a Jueves:</strong> Cerrado</p>
+                    </div>
                 </div>
             </div>
             <div class="mapa" data-aos="fade-up">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12147.354030289067!2d-3.7031319304199276!3d40.41677007936275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1617795244452!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.3151634324633!2d-5.6663984238425105!3d40.12766747597872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd3e713e7273b82f%3A0x8d92b9b43c8a30e0!2sAv.%20Soledad%20Vega%20Ortiz%2C%20125%2C%2010450%20Jarandilla%20de%20la%20Vera%2C%20C%C3%A1ceres!5e0!3m2!1ses!2ses!4v1713352844563!5m2!1ses!2ses" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
-
-    <div class="reservation-modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Reserva tu mesa</h2>
-            <form id="reservation-form">
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Teléfono</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">Fecha</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                <div class="form-group">
-                    <label for="time">Hora</label>
-                    <input type="time" id="time" name="time" required>
-                </div>
-                <div class="form-group">
-                    <label for="guests">Número de personas</label>
-                    <input type="number" id="guests" name="guests" min="1" max="10" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Comentarios adicionales</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-                <button type="submit" class="btn-reserva">Confirmar reserva</button>
-            </form>
-        </div>
-    </div>
 
     <footer>
         <div class="footer-content">
@@ -274,5 +392,6 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/main.js"></script>
     <script src="js/carta.js"></script>
+    <script src="js/musica.js"></script>
 </body>
 </html>

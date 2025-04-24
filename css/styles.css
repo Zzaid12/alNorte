@@ -87,6 +87,7 @@
     background-position: center;
     z-index: -2;
     animation: hero-zoom 20s infinite alternate ease-in-out;
+    background-image: url('../img/01-img hero desktop.jpg');
   }
   
   @keyframes hero-zoom {
@@ -227,6 +228,10 @@
     .btn-reserva, .btn-secondary {
       padding: 0.9rem 2rem;
       font-size: 1rem;
+    }
+    
+    .hero-bg {
+        background-image: url('../img/01-img hero mobile.jpg');
     }
   }
   

@@ -756,6 +756,72 @@
     }
   }
   
+  /* Mejoras responsive para historia y premios */
+  @media (max-width: 900px) {
+    .historia-container {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .historia-image, .historia-content {
+      min-width: 0;
+      width: 100%;
+      text-align: center;
+    }
+    .historia-image img {
+      max-width: 90vw;
+      height: auto;
+      margin: 0 auto 1rem auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .historia-content {
+      padding: 0 1rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .historia-content {
+      font-size: 1rem;
+      padding: 0 0.5rem;
+    }
+    .historia-logros {
+      font-size: 0.97rem;
+      padding: 0 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .historia-image img {
+      max-width: 98vw;
+      margin-bottom: 1.2rem;
+    }
+    .historia-image div {
+      flex-direction: column !important;
+      gap: 0.8rem !important;
+    }
+    .historia-image img {
+      max-width: 90vw !important;
+      width: 100%;
+    }
+  }
+  /* Mejorar separación de bloques de texto largos en móvil */
+  @media (max-width: 600px) {
+    .historia-content p, .musica-logros p {
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      text-align: left;
+      background: #f8f9fa;
+      padding: 1rem 0.7rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+  }
+  /* Responsive para bloque de logros en música */
+  @media (max-width: 600px) {
+    .musica-logros {
+      font-size: 0.97rem;
+      padding: 0 0.5rem;
+      margin-bottom: 2rem;
+    }
+  }
+  
   /* Interactive Menu Section */
   .interactive-menu-section {
     padding: 6rem 0;
@@ -1539,10 +1605,13 @@
   .carousel-container {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 540px;
     overflow: hidden;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .carousel-slide {
@@ -1553,6 +1622,9 @@
     height: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .carousel-slide.active {
@@ -1560,9 +1632,14 @@
   }
   
   .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: auto;
+    height: 95%;
+    max-height: 95%;
+    max-width: 340px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+    background: #fff;
   }
   
   .carousel-controls {
@@ -1746,6 +1823,26 @@
   
     .plato-destacado img {
       height: 200px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-container {
+        height: 400px;
+    }
+    .carousel-slide img {
+        max-width: 90vw;
+        max-height: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-container {
+        height: 320px;
+    }
+    .carousel-slide img {
+        max-width: 98vw;
+        max-height: 90%;
     }
   }
   
@@ -2404,3 +2501,102 @@
     }
   }
   
+  .carousel-track {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 24px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .carousel-slide {
+    position: relative;
+    flex: 0 0 auto;
+    width: 220px; /* Ajusta el ancho de cada imagen vertical */
+    height: 95%;
+    opacity: 1;
+    transition: transform 0.5s, box-shadow 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #fff;
+  }
+  
+  .carousel-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 540px;
+    width: 100%;
+    padding: 0 24px;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  .carousel-slide {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+  
+  .carousel-slide img {
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    margin: 0;
+  }
+  
+  @media (max-width: 900px) {
+    .carousel-slide {
+        width: 160px;
+    }
+    .carousel-container {
+        height: 400px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .carousel-slide {
+        width: 120px;
+    }
+    .carousel-container {
+        height: 260px;
+        padding: 0 8px;
+    }
+  }
+  
+  /* Asegura que las imágenes de premios se apilen en columna y ocupen todo el ancho en móvil, usando la nueva clase historia-premios-imgs */
+  @media (max-width: 600px) {
+    .historia-premios-imgs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .historia-premios-imgs img {
+      max-width: 90vw !important;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+  }

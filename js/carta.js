@@ -34,23 +34,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function actualizarCarrusel(categoria) {
-        // Ocultar todos los slides
+        // Mostrar solo los slides de la categoría actual (todos a la vez)
         slides.forEach(slide => {
-            slide.style.display = 'none';
-            slide.classList.remove('active', 'fade-in', 'fade-out');
+            if (slide.dataset.categoria === categoria) {
+                slide.style.display = 'flex';
+                slide.classList.add('active');
+            } else {
+                slide.style.display = 'none';
+                slide.classList.remove('active', 'fade-in', 'fade-out');
+            }
         });
-
-        // Mostrar solo los slides de la categoría actual
-        const slidesCategoria = document.querySelectorAll(`.carousel-slide[data-categoria="${categoria}"]`);
-        if (slidesCategoria.length > 0) {
-            currentSlide = 0;
-            slidesCategoria[0].style.display = 'block';
-            slidesCategoria[0].classList.add('active', 'fade-in');
-            actualizarIndicadores(slidesCategoria);
-            
-            // Iniciar el cambio automático
-            iniciarAutoSlide(slidesCategoria);
-        }
+        // No indicadores ni auto-slide en modo multi-imagen
     }
 
     function actualizarIndicadores(slidesCategoria) {

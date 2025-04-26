@@ -1,0 +1,122 @@
+/* Carrusel 3D tipo coverflow para sección "Nuestra Carta" */
+.carta-carousel-3d-container {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carta-carousel-3d-cards {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carta-carousel-3d-card {
+  position: absolute;
+  width: 260px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: transform .5s cubic-bezier(.4,2,.6,1), opacity .5s;
+  cursor: pointer;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.11);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  z-index: 1;
+  opacity: 1;
+}
+.carta-carousel-3d-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.carta-carousel-3d-card.far-left {
+  transform: translateX(-110%) scale(.7);
+  opacity: 0.2;
+  z-index: 0;
+  filter: blur(3px) grayscale(0.3);
+  pointer-events: none;
+}
+.carta-carousel-3d-card.far-right {
+  transform: translateX(110%) scale(.7);
+  opacity: 0.2;
+  z-index: 0;
+  filter: blur(3px) grayscale(0.3);
+  pointer-events: none;
+}
+.carta-carousel-3d-card.left {
+  transform: translateX(-60%) scale(.8);
+  opacity: 0.4;
+  z-index: 0;
+  filter: blur(2px) grayscale(0.2);
+}
+.carta-carousel-3d-card.right {
+  transform: translateX(60%) scale(.8);
+  opacity: 0.4;
+  z-index: 0;
+  filter: blur(2px) grayscale(0.2);
+}
+.carta-carousel-3d-card.center {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+  filter: none;
+}
+.carta-carousel-3d-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  background: rgba(0,0,0,0.09);
+  border: none;
+  border-radius: 50%;
+  color: #722f37;
+  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.carta-carousel-3d-arrow.left { left: -48px; }
+.carta-carousel-3d-arrow.right { right: -48px; }
+.carta-carousel-3d-arrow:hover { background: rgba(0,0,0,0.18); }
+@media (max-width: 900px) {
+  .carta-carousel-3d-container { max-width: 98vw; height: 320px; }
+  .carta-carousel-3d-cards, .carta-carousel-3d-card { height: 300px; }
+  .carta-carousel-3d-card { width: 180px; }
+  .carta-carousel-3d-card.left {
+    transform: translateX(-80%) scale(.8);
+  }
+  .carta-carousel-3d-card.right {
+    transform: translateX(80%) scale(.8);
+  }
+  .carta-carousel-3d-card.far-left,
+  .carta-carousel-3d-card.far-right {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .carta-carousel-3d-container { height: 220px; }
+  .carta-carousel-3d-cards, .carta-carousel-3d-card { height: 200px; }
+  .carta-carousel-3d-card { width: 110px; }
+  .carta-carousel-3d-arrow.left { left: -24px; }
+  .carta-carousel-3d-arrow.right { right: -24px; }
+  .carta-carousel-3d-card.left {
+    transform: translateX(-100%) scale(.8);
+  }
+  .carta-carousel-3d-card.right {
+    transform: translateX(100%) scale(.8);
+  }
+}

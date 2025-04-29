@@ -152,6 +152,68 @@
                 align-items: flex-start;
             }
         }
+
+        /* Mejora de legibilidad con sombras en texto sobre imágenes */
+        .historia-hero .hero-content h1,
+        .historia-hero .hero-content p,
+        nav a {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        /* Estilo mejorado para el botón de volver */
+        .btn-historia {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
+            background-color: #611718;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 2rem 0;
+        }
+        
+        .btn-historia:hover {
+            background-color: #7a1e1f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-historia:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-historia i {
+            margin-right: 8px;
+        }
+        
+        .historia-btn-back-container {
+            text-align: center;
+            padding: 1rem 0 3rem;
+        }
+        
+        /* Estilo para los títulos de secciones */
+        .historia-content h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: #611718;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .historia-content h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 2px;
+            background-color: #611718;
+            margin-top: 10px;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -252,7 +314,7 @@ A través de mis viajes importo sabores y técnicas de los países que visito, e
     </section>
 
     <div class="historia-btn-back-container">
-        <a href="index.html" class="btn-historia btn-historia-back">
+        <a href="index.html" class="btn-historia">
             <i class="fas fa-arrow-left"></i> Volver a la página principal
         </a>
     </div>

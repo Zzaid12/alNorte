@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Historia - Al Norte Restaurante</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="img/favicon_64x64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_16x16.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @media (max-width: 768px) {
+            .historia-section.historia-premios {
+                padding: 1.5rem 0;
+            }
+            
+            .historia-content p {
+                margin-bottom: 0.5rem;
+            }
+            
+            .historia-container {
+                padding: 0 15px;
+                flex-direction: column !important;
+            }
+            
+            .historia-premios .historia-content > div {
+                gap: 0.5rem !important;
+            }
+
+            .historia-content h2 {
+                font-size: 2.2rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .historia-section {
+                padding: 2rem 0;
+                margin-bottom: 1rem;
+            }
+
+            .historia-image img {
+                border-radius: 8px;
+                width: 100%;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+                transition: transform 0.3s ease;
+            }
+            
+            /* Ordenar contenido en móvil - contenido siempre primero */
+            .historia-section .historia-content {
+                order: 1 !important;
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            
+            .historia-section .historia-image {
+                order: 2 !important;
+                margin-top: 1.5rem;
+                width: 100%;
+            }
+            
+            /* Alineación de imágenes en reconocimientos */
+            .historia-premios-imgs {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            
+            .historia-premios-imgs img {
+                max-width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            
+            .historia-premios-imgs img:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        /* Estilos generales para todas las secciones */
+        .historia-content p {
+            text-align: justify;
+        }
+        
+        /* Hacer que los contenedores sean flex para poder controlar el orden */
+        .historia-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .historia-content, .historia-image {
+            flex: 1 1 45%;
+        }
+        
+        /* Estilos generales para las imágenes */
+        .historia-image img {
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            max-width: 100%;
+        }
+        
+        .historia-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Estilos específicos para las imágenes de premios */
+        .historia-premios-imgs img {
+            max-width: 300px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .historia-premios-imgs img:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Estilos específicos para sección de arte donde la imagen va primero en desktop */
+        .historia-section.historia-arte .historia-image {
+            order: 1;
+        }
+        
+        .historia-section.historia-arte .historia-content {
+            order: 2;
+        }
+        
+        @media (min-width: 769px) {
+            /* Ajustes para sección de arte en desktop */
+            .historia-section.historia-arte .historia-image {
+                margin-right: 2rem;
+            }
+            
+            /* Ajustes para sección origen en desktop */
+            .historia-section.historia-page .historia-content {
+                margin-right: 2rem;
+            }
+            
+            /* Ajustes para sección reconocimientos en desktop */
+            .historia-section.historia-premios .historia-content {
+                margin-right: 2rem;
+            }
+            
+            /* Alineación de imágenes en reconocimientos */
+            .historia-premios-imgs {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-overlay"></div>
+    <header class="hero historia-hero">
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-bg" style="background-image: url('img/05. Img restaurante.jpg');"></div>
+        <nav>
+            <div class="logo">
+                <img src="img/Al Norte - logo blanco.png" alt="Al Norte Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#carta">Carta</a>
+                <a href="#historia">Historia</a>
+                <a href="eventos.html">Eventos</a>
+                <a href="index.html#musica">Música</a>
+                <a href="index.html#contacto">Contacto</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="hero-content">
+            <div class="hero-content-inner">
+                
+                
+                
+            </div>
+        </div>
+    </header>
+
+    <section id="historia" class="historia-section historia-page">
+        <div class="historia-container">
+            <div class="historia-content" data-aos="fade-up">
+                <h2>Nuestro origen</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <p style="margin: 0; text-align: justify;">¡Hola! Me presento, soy Ruth, la propietaria de Al Norte. 
+A través de mis viajes importo sabores y técnicas de los países que visito, enriqueciendo constantemente nuestro repertorio y abriendo nuestras mentes y paladares a nuevas sensaciones. Mi maravilloso equipo formado por -NOMBRES- aporta su pasión y trayectoria para crear una experiencia única en la cocina.</p>
+                    
+                    <p style="margin: 0; text-align: justify;">Nuestra cocina es un espacio abierto, un lugar donde la creatividad y el amor por lo que hacemos se fusionan. Para nosotros, la cocina es una forma de decir "te quiero".</p>
+                    
+                    <p style="margin: 0; text-align: justify;">Amamos nuestro trabajo, nuestra cocina y, sobre todo, a nuestros clientes. Es nuestra manera de cuidarles, de hacerles disfrutar y de transmitirles todo nuestro cariño a través de cada plato.</p>
+                    
+                    <p style="margin: 0; text-align: justify;">Nuestra filosofía se basa en el slow food, en disfrutar cada momento, en vivir despacio para saborear cada detalle.</p>
+                </div>
+            </div>
+            <div class="historia-image" data-aos="fade-up">
+                <img src="img/restaurante.jpg" alt="Historia del restaurante">
+            </div>
+        </div>
+    </section>
+
+    <section class="historia-section historia-arte">
+        <div class="historia-container">
+            <div class="historia-image" data-aos="fade-right">
+                <img src="img/CARTA3.jpg" alt="Nuestro arte en Al Norte">
+            </div>
+            <div class="historia-content" data-aos="fade-left">
+                <h2>Nuestro arte</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <p style="margin: 0; text-align: justify;">La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros que adornan nuestras paredes han sido creados con mucho cariño por mí y por mi madre. Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la dedicación que ponemos en cada detalle de nuestro local.</p>
+                    
+                    <p style="margin: 0; text-align: justify;">Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y personal, haciendo que cada visita sea una experiencia más cálida y auténtica para nuestros clientes. Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de significado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="historia-section historia-premios" >
+        <div class="historia-container">
+            <div class="historia-content" data-aos="fade-right">
+                <h2 style="font-family: 'Pinyon Script', cursive; font-size: 2.8rem; margin-bottom: 1.5rem; color: #611718; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); position: relative;">Nuestros reconocimientos
+                    <span style="display: block; width: 100px; height: 2px; background-color: #611718; margin-top: 10px; opacity: 0.7;"></span>
+                </h2>
+                
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                    <p style="margin: 0; text-align: justify;">Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante. Haber sido galardonados con la Guía Michelin en 2023 y 2024, así como con el premio Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.</p>
+                    
+                    <p style="margin: 0; text-align: justify;">Estos premios no solo representan la calidad de nuestra comida y servicio, sino también el esfuerzo diario de todo nuestro equipo para ofrecer una experiencia memorable.</p>
+                    
+                    <p style="margin: 0; text-align: justify;">La Guía Michelin es uno de los reconocimientos más prestigiosos en el mundo de la gastronomía, y que nos hayan otorgado estas distinciones en dos años consecutivos nos impulsa a seguir innovando y mejorando cada día.</p>
+                    
+                    <p style="margin: 0; text-align: justify;">El premio Tapas 2023, por su parte, refleja nuestro compromiso por ofrecer sabores auténticos y creativos en cada bocado, buscando siempre sorprender y deleitar a nuestros clientes.</p>
+                    
+                    <p style="margin: 0; text-align: justify;">Para nosotros, estos reconocimientos son un testimonio del cariño y confianza que nos brindan, y nos motivan a seguir trabajando con entusiasmo para que cada visita a nuestro restaurante sea especial.</p>
+                </div>
+            </div>
+            <div class="historia-image" data-aos="fade-left">
+                <div class="historia-premios-imgs">
+                    <img src="img/EXTERIOR3.jpg" alt="Premio Michelin Al Norte" style="margin-bottom: 1.5rem;">
+                    <img src="img/EXTERIOR4.jpg" alt="Premio Tapas Al Norte">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="historia-btn-back-container">
+        <a href="index.html" class="btn-historia btn-historia-back">
+            <i class="fas fa-arrow-left"></i> Volver a la página principal
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/Al Norte - logo blanco.png" alt="Al Norte Logo">
+            </div>
+            <p>&copy; 2025 Al Norte Restaurante. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Manejo del menú móvil
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const navOverlay = document.querySelector('.nav-overlay');
+
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', function() {
+                    mobileBtn.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    navOverlay.classList.toggle('active');
+                });
+            }
+
+            if (navOverlay) {
+                navOverlay.addEventListener('click', function() {
+                    mobileBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                });
+            }
+
+            // Manejo del scroll para el navbar
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

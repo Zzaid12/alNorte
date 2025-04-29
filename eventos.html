@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Al Norte Restaurante</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="img/favicon_64x64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon_32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon_16x16.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .eventos-hero {
+            min-height: 40vh;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .eventos-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .eventos-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            color: white;
+        }
+        
+        .eventos-hero-content h1 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .eventos-hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .eventos-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            border-bottom-color: #611718;
+            color: #611718;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 1rem 0 3rem;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .eventos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .eventos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .evento-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .evento-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .evento-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .evento-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .evento-card:hover .evento-img img {
+            transform: scale(1.05);
+        }
+        
+        .evento-fecha {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #611718;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .evento-past .evento-fecha {
+            background: #888;
+        }
+        
+        .evento-content {
+            padding: 1.5rem;
+        }
+        
+        .evento-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .evento-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .evento-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .evento-detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .evento-detail i {
+            color: #611718;
+            width: 20px;
+        }
+        
+        .evento-btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #611718;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+        
+        .evento-btn:hover {
+            background: #7a1e1f;
+        }
+        
+        .evento-past .evento-btn {
+            background: #888;
+        }
+        
+        .evento-past .evento-btn:hover {
+            background: #777;
+        }
+        
+        .no-eventos {
+            text-align: center;
+            padding: 3rem 0;
+            color: #666;
+        }
+        
+        .eventos-btn-back-container {
+            text-align: center;
+            margin: 2rem 0 4rem;
+        }
+        
+        .btn-eventos-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: #611718;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-eventos-back:hover {
+            background: #7a1e1f;
+        }
+        
+        @media (max-width: 768px) {
+            .eventos-hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .eventos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Estilos para el menú móvil */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1001;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 1000;
+                display: none;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                cursor: pointer;
+                z-index: 1002;
+            }
+            
+            .mobile-menu-btn span {
+                width: 100%;
+                height: 3px;
+                background-color: white;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+        }
+
+        nav.scrolled {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 0.75rem 2rem;
+            position: fixed;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #e1c4b3;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #e1c4b3;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .logo {
+            max-width: 150px;
+            z-index: 1003;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+        
+        nav.scrolled .logo img {
+            max-width: 130px;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                max-width: 120px;
+            }
+            
+            .eventos-hero-content h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-overlay"></div>
+    <header class="eventos-hero">
+        <div class="eventos-hero-overlay"></div>
+        <div class="hero-bg" style="background-image: url('img/EXTERIOR3.jpg');"></div>
+        <nav>
+            <div class="logo">
+                <img src="img/Al Norte - logo blanco.png" alt="Al Norte Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#carta">Carta</a>
+                <a href="historia.html">Historia</a>
+                <a href="#" class="active">Eventos</a>
+                <a href="index.html#musica">Música</a>
+                <a href="index.html#contacto">Contacto</a>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div class="eventos-hero-content">
+            <h1>Nuestros Eventos</h1>
+            <p>Descubre todas las experiencias gastronómicas y eventos especiales que organizamos para ti</p>
+        </div>
+    </header>
+
+    <section id="eventos" class="eventos-section">
+        <div class="eventos-container">
+            <div class="eventos-tabs">
+                <button class="tab-btn active" data-tab="proximos">Próximos eventos</button>
+                <button class="tab-btn" data-tab="pasados">Eventos pasados</button>
+            </div>
+            
+            <div id="proximos" class="tab-content active">
+                <div class="eventos-grid">
+                    <!-- Evento 1 -->
+                    <div class="evento-card">
+                        <div class="evento-img">
+                            <img src="img/EXTERIOR3.jpg" alt="Cata de vinos de la Vera">
+                            <div class="evento-fecha">9 de Mayo, 2024</div>
+                        </div>
+                        <div class="evento-content">
+                            <h3 class="evento-title">Cata de vinos de la Vera</h3>
+                            <p class="evento-description">Prueba una gran selección de vinos acompañados de los mejores maridajes en un ambiente único y acogedor.</p>
+                            <div class="evento-details">
+                                <div class="evento-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>13:00h</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Al Norte Restaurante</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <span>35€ por persona</span>
+                                </div>
+                            </div>
+                            <a href="#" class="evento-btn">Reservar ahora</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Evento 2 -->
+                    <div class="evento-card">
+                        <div class="evento-img">
+                            <img src="img/EXTERIOR4.jpg" alt="Noche de tapas y vino">
+                            <div class="evento-fecha">15 de Mayo, 2024</div>
+                        </div>
+                        <div class="evento-content">
+                            <h3 class="evento-title">Noche de tapas y vino</h3>
+                            <p class="evento-description">Disfruta una selección especial de tapas españolas maridadas con vinos locales. Música en vivo y ambiente acogedor.</p>
+                            <div class="evento-details">
+                                <div class="evento-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>19:00h - 22:30h</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Al Norte Restaurante</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <span>25€ por persona</span>
+                                </div>
+                            </div>
+                            <a href="#" class="evento-btn">Reservar ahora</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Evento 3 -->
+                    <div class="evento-card">
+                        <div class="evento-img">
+                            <img src="img/CARTA3.jpg" alt="Brunch dominical con jazz">
+                            <div class="evento-fecha">21 de Mayo, 2024</div>
+                        </div>
+                        <div class="evento-content">
+                            <h3 class="evento-title">Brunch dominical con jazz</h3>
+                            <p class="evento-description">Buffet de brunch con platos dulces y salados, acompañados de música jazz en vivo para un ambiente relajado y elegante.</p>
+                            <div class="evento-details">
+                                <div class="evento-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>11:00h - 14:00h</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Al Norte Restaurante</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <span>30€ por persona</span>
+                                </div>
+                            </div>
+                            <a href="#" class="evento-btn">Reservar ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="pasados" class="tab-content">
+                <div class="eventos-grid">
+                    <!-- Evento Pasado 1 -->
+                    <div class="evento-card evento-past">
+                        <div class="evento-img">
+                            <img src="img/05. Img restaurante.jpg" alt="Taller de cocina española">
+                            <div class="evento-fecha">10 de Abril, 2024</div>
+                        </div>
+                        <div class="evento-content">
+                            <h3 class="evento-title">Taller de cocina española</h3>
+                            <p class="evento-description">Un taller práctico donde aprendiste los secretos de la cocina española tradicional con nuestro chef.</p>
+                            <div class="evento-details">
+                                <div class="evento-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>18:00h - 21:00h</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Al Norte Restaurante</span>
+                                </div>
+                            </div>
+                            <a href="#" class="evento-btn">Ver galería</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Evento Pasado 2 -->
+                    <div class="evento-card evento-past">
+                        <div class="evento-img">
+                            <img src="img/restaurante.jpg" alt="Cena maridaje con el enólogo">
+                            <div class="evento-fecha">25 de Marzo, 2024</div>
+                        </div>
+                        <div class="evento-content">
+                            <h3 class="evento-title">Cena maridaje con el enólogo</h3>
+                            <p class="evento-description">Una experiencia única donde pudiste disfrutar de una cena de 5 platos maridada con vinos seleccionados por nuestro enólogo.</p>
+                            <div class="evento-details">
+                                <div class="evento-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>20:00h - 23:00h</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Al Norte Restaurante</span>
+                                </div>
+                            </div>
+                            <a href="#" class="evento-btn">Ver galería</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Evento Pasado 3 -->
+                    <div class="evento-card evento-past">
+                        <div class="evento-img">
+                            <img src="img/INTERIOR5.jpg" alt="Noche de flamenco y gastronomía">
+                            <div class="evento-fecha">15 de Febrero, 2024</div>
+                        </div>
+                        <div class="evento-content">
+                            <h3 class="evento-title">Noche de flamenco y gastronomía</h3>
+                            <p class="evento-description">Una noche donde la gastronomía y el arte flamenco se fusionaron para crear una experiencia sensorial inolvidable.</p>
+                            <div class="evento-details">
+                                <div class="evento-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <span>20:30h - 23:30h</span>
+                                </div>
+                                <div class="evento-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Al Norte Restaurante</span>
+                                </div>
+                            </div>
+                            <a href="#" class="evento-btn">Ver galería</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="eventos-btn-back-container">
+        <a href="index.html" class="btn-eventos-back">
+            <i class="fas fa-arrow-left"></i> Volver a la página principal
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/Al Norte - logo blanco.png" alt="Al Norte Logo">
+            </div>
+            <p>&copy; 2025 Al Norte Restaurante. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Manejo del menú móvil
+            const mobileBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const navOverlay = document.querySelector('.nav-overlay');
+
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', function() {
+                    mobileBtn.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    navOverlay.classList.toggle('active');
+                });
+            }
+
+            if (navOverlay) {
+                navOverlay.addEventListener('click', function() {
+                    mobileBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                });
+            }
+
+            // Manejo del scroll para el navbar
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            });
+            
+            // Manejo de pestañas
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    // Activar botón
+                    tabBtns.forEach(btn => btn.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    // Mostrar contenido
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

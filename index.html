@@ -10,8 +10,148 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ... estilos existentes ... */
+        
+        /* Estilos para sección de eventos destacados */
+        .eventos-destacados-section {
+            padding: 5rem 0;
+            background-color: #f9f7f5;
+        }
+        
+        .eventos-destacados-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .eventos-destacados-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .eventos-destacados-header h2 {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 3rem;
+            color: #611718;
+            margin-bottom: 1rem;
+        }
+        
+        .eventos-destacados-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        .eventos-destacados-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .evento-destacado-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            background: white;
+        }
+        
+        .evento-destacado-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .evento-destacado-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .evento-destacado-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .evento-destacado-card:hover .evento-destacado-img img {
+            transform: scale(1.05);
+        }
+        
+        .evento-destacado-fecha {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #611718;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .evento-destacado-content {
+            padding: 1.5rem;
+        }
+        
+        .evento-destacado-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .evento-destacado-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .eventos-destacados-footer {
+            text-align: center;
+        }
+        
+        .btn-eventos {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #611718;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-eventos:hover {
+            background: #7a1e1f;
+        }
+        
+        .btn-musica, .musica-content, .musica-content h2, .musica-content p, .musica-image, .musica-image img {
+            /* Estos estilos ya no son necesarios */
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .eventos-destacados-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .musica-container {
+                /* flex-direction: column; */ /* Ya no es necesario */
+            }
+            
+            .musica-content {
+                /* padding-right: 0;
+                margin-bottom: 2rem;
+                text-align: center; */ /* Ya no es necesario */
+            }
+            
+            .eventos-destacados-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="nav-overlay"></div>
@@ -23,8 +163,10 @@
                 <img src="img/Al Norte - logo blanco.png" alt="Al Norte Logo">
             </div>
             <div class="nav-links">
+                <a href="#" class="active">Inicio</a>
                 <a href="#carta">Carta</a>
-                <a href="#historia">Historia</a>
+                <a href="historia.html">Historia</a>
+                <a href="eventos.html">Eventos</a>
                 <a href="#musica">Música</a>
                 <a href="#contacto">Contacto</a>
             </div>
@@ -269,6 +411,10 @@
         </div>
     </section>
 
+    <div class="imagen-separador">
+        <img src="img/INTERIOR5.jpg" alt="Interior del restaurante Al Norte">
+    </div>
+
     <section id="historia" class="historia-section">
         <div class="section-title">
             <h2>Nuestra Historia</h2>
@@ -281,54 +427,13 @@ A través de mis viajes importo
 sabores y técnicas de los países que visito, enriqueciendo constantemente nuestro
 repertorio y abriendo nuestras mentes y paladares a nuevas sensaciones. Mi maravilloso
 equipo formado por -NOMBRES- aporta su pasión y trayectoria para crear una experiencia
-única en la cocina.<br><br>
-Nuestra cocina es un espacio abierto, un lugar donde la creatividad y el amor por lo que
-hacemos se fusionan. Para nosotros, la cocina es una forma de decir "te quiero".<br><br>
-Amamos nuestro trabajo, nuestra cocina y, sobre todo, a nuestros clientes. Es nuestra
-manera de cuidarles, de hacerles disfrutar y de transmitirles todo nuestro cariño a través de
-cada plato.<br><br>
-Nuestra filosofía se basa en el slow food, en disfrutar cada momento, en vivir despacio para
-saborear cada detalle.</p>
+única en la cocina.</p>
+                <div class="historia-btn-container">
+                    <a href="historia.html" class="btn-historia">Conoce toda nuestra historia</a>
+                </div>
             </div>
             <div class="historia-image" data-aos="fade-left">
                 <img src="img/restaurante.jpg" alt="Historia del restaurante">
-            </div>
-        </div>
-    </section>
-
-    <section class="historia-section historia-arte">
-        <div class="historia-container">
-            <div class="historia-image" data-aos="fade-right">
-                <img src="img/CARTA3.jpg" alt="Nuestro arte en Al Norte">
-            </div>
-            <div class="historia-content" data-aos="fade-left">
-                <p>La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros
-que adornan nuestras paredes han sido creados con mucho cariño por mí y por mi madre.
-Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la
-dedicación que ponemos en cada detalle de nuestro local.<br><br>
-Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y
-personal, haciendo que cada visita sea una experiencia más cálida y auténtica para
-nuestros clientes. Para nosotros, estos cuadros representan una parte importante de
-nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de
-significado.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="historia-section historia-premios">
-        <div class="historia-container">
-            <div class="historia-content" data-aos="fade-right">
-                <p>Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante. Haber sido galardonados con la Guía Michelin en 2023 y 2024, así como con el premio Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.<br><br>
-Estos premios no solo representan la calidad de nuestra comida y servicio, sino también el esfuerzo diario de todo nuestro equipo para ofrecer una experiencia memorable.<br><br>
-La Guía Michelin es uno de los reconocimientos más prestigiosos en el mundo de la gastronomía, y que nos hayan otorgado estas distinciones en dos años consecutivos nos impulsa a seguir innovando y mejorando cada día.<br><br>
-El premio Tapas 2023, por su parte, refleja nuestro compromiso por ofrecer sabores auténticos y creativos en cada bocado, buscando siempre sorprender y deleitar a nuestros clientes.<br><br>
-Para nosotros, estos reconocimientos son un testimonio del cariño y confianza que nos brindan, y nos motivan a seguir trabajando con entusiasmo para que cada visita a nuestro restaurante sea especial.</p>
-            </div>
-            <div class="historia-image" data-aos="fade-left">
-                <div class="historia-premios-imgs">
-                    <img src="img/EXTERIOR3.jpg" alt="Premio Michelin Al Norte" style="max-width: 240px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
-                    <img src="img/EXTERIOR4.jpg" alt="Premio Tapas Al Norte" style="max-width: 240px; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.12);">
-                </div>
             </div>
         </div>
     </section>
@@ -340,12 +445,15 @@ Para nosotros, estos reconocimientos son un testimonio del cariño y confianza q
         </div>
         <div class="musica-container">
             <div class="musica-logros" style="margin-bottom:2.5rem;">
-                <p>Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante. Haber sido galardonados con la Guía Michelin en 2023 y 2024, así como con el premio Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.<br><br>
-Estos premios no solo representan la calidad de nuestra comida y servicio, sino también el esfuerzo diario de todo nuestro equipo para ofrecer una experiencia memorable.<br><br>
-La Guía Michelin es uno de los reconocimientos más prestigiosos en el mundo de la gastronomía, y que nos hayan otorgado estas distinciones en dos años consecutivos nos impulsa a seguir innovando y mejorando cada día.<br><br>
-El premio Tapas 2023, por su parte, refleja nuestro compromiso por ofrecer sabores auténticos y creativos en cada bocado, buscando siempre sorprender y deleitar a nuestros clientes.<br><br>
-Para nosotros, estos reconocimientos son un testimonio del cariño y confianza que nos brindan, y nos motivan a seguir trabajando con entusiasmo para que cada visita a nuestro restaurante sea especial.</p>
-            </div>
+                <p>En nuestro restaurante, la música que escuchan nuestros clientes tiene un papel
+fundamental para crear una experiencia única y memorable. Nos enorgullece ofrecer una
+selección de los mejores temas de todos los géneros musicales, porque creemos que la
+variedad y la calidad en la música enriquecen cada momento que compartimos aquí.
+La música no solo acompaña la comida, sino que también ayuda a crear un clima cálido,
+acogedor y lleno de energía positiva. Queremos que cada visita sea especial, y la música es
+una parte esencial para lograr ese ambiente perfecto donde nuestros clientes puedan
+relajarse, disfrutar y sentirse como en casa.
+¿Quieres saber a qué suena Al Norte? ¡Escucha nuestra Playlist! </div>
             <div class="reproductor">
                 <div class="reproductor-header">
                     <h3>Playlist de Al Norte</h3>
@@ -375,6 +483,44 @@ Para nosotros, estos reconocimientos son un testimonio del cariño y confianza q
                         <span class="total-time">0:00</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nueva sección de eventos -->
+    <section id="eventos-destacados" class="eventos-destacados-section">
+        <div class="eventos-destacados-container">
+            <div class="eventos-destacados-header" data-aos="fade-up">
+                <h2>Próximos eventos</h2>
+                <p>Descubre las experiencias gastronómicas y eventos especiales que organizamos para ti</p>
+            </div>
+            <div class="eventos-destacados-grid" data-aos="fade-up">
+                <!-- Evento 1 -->
+                <div class="evento-destacado-card">
+                    <div class="evento-destacado-img">
+                        <img src="img/EXTERIOR3.jpg" alt="Cata de vinos de la Vera">
+                        <div class="evento-destacado-fecha">9 de Mayo</div>
+                    </div>
+                    <div class="evento-destacado-content">
+                        <h3 class="evento-destacado-title">Cata de vinos de la Vera</h3>
+                        <p class="evento-destacado-description">Prueba una gran selección de vinos acompañados de los mejores maridajes.</p>
+                    </div>
+                </div>
+                
+                <!-- Evento 2 -->
+                <div class="evento-destacado-card">
+                    <div class="evento-destacado-img">
+                        <img src="img/EXTERIOR4.jpg" alt="Noche de tapas y vino">
+                        <div class="evento-destacado-fecha">15 de Mayo</div>
+                    </div>
+                    <div class="evento-destacado-content">
+                        <h3 class="evento-destacado-title">Noche de tapas y vino</h3>
+                        <p class="evento-destacado-description">Disfruta una selección especial de tapas españolas maridadas con vinos locales.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="eventos-destacados-footer" data-aos="fade-up">
+                <a href="eventos.html" class="btn-eventos">Ver todos los eventos</a>
             </div>
         </div>
     </section>

@@ -214,6 +214,59 @@
             margin-top: 10px;
             opacity: 0.7;
         }
+
+        /* Estilos para el selector de idioma */
+        .language-selector {
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn-language {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            padding: 5px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-language i {
+            margin-right: 5px;
+        }
+        
+        .btn-language:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Estilo para cuando el navbar tiene scroll */
+        nav.scrolled .btn-language {
+            color: #611718;
+            border-color: rgba(97, 23, 24, 0.4);
+        }
+        
+        nav.scrolled .btn-language:hover {
+            background-color: rgba(97, 23, 24, 0.1);
+            border-color: rgba(97, 23, 24, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .language-selector {
+                position: absolute;
+                top: 16px;
+                right: 60px;
+            }
+            
+            .btn-language {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -232,6 +285,11 @@
                 <a href="eventos.html">Eventos</a>
                 <a href="index.html#musica">Música</a>
                 <a href="index.html#contacto">Contacto</a>
+            </div>
+            <div class="language-selector">
+                <button id="btn-language" class="btn-language">
+                    <i class="fas fa-globe"></i> ES / EN
+                </button>
             </div>
             <div class="mobile-menu-btn">
                 <span></span>
@@ -253,14 +311,14 @@
             <div class="historia-content" data-aos="fade-up">
                 <h2>Nuestro origen</h2>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <p style="margin: 0; text-align: justify;">¡Hola! Me presento, soy Ruth, la propietaria de Al Norte. 
+                    <p style="margin: 0; text-align: justify;" data-translate="intro">¡Hola! Me presento, soy Ruth, la propietaria de Al Norte. 
 A través de mis viajes importo sabores y técnicas de los países que visito, enriqueciendo constantemente nuestro repertorio y abriendo nuestras mentes y paladares a nuevas sensaciones. Mi maravilloso equipo formado por -NOMBRES- aporta su pasión y trayectoria para crear una experiencia única en la cocina.</p>
                     
-                    <p style="margin: 0; text-align: justify;">Nuestra cocina es un espacio abierto, un lugar donde la creatividad y el amor por lo que hacemos se fusionan. Para nosotros, la cocina es una forma de decir "te quiero".</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="cocina">Nuestra cocina es un espacio abierto, un lugar donde la creatividad y el amor por lo que hacemos se fusionan. Para nosotros, la cocina es una forma de decir "te quiero".</p>
                     
-                    <p style="margin: 0; text-align: justify;">Amamos nuestro trabajo, nuestra cocina y, sobre todo, a nuestros clientes. Es nuestra manera de cuidarles, de hacerles disfrutar y de transmitirles todo nuestro cariño a través de cada plato.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="amor">Amamos nuestro trabajo, nuestra cocina y, sobre todo, a nuestros clientes. Es nuestra manera de cuidarles, de hacerles disfrutar y de transmitirles todo nuestro cariño a través de cada plato.</p>
                     
-                    <p style="margin: 0; text-align: justify;">Nuestra filosofía se basa en el slow food, en disfrutar cada momento, en vivir despacio para saborear cada detalle.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="filosofia">Nuestra filosofía se basa en el slow food, en disfrutar cada momento, en vivir despacio para saborear cada detalle.</p>
                 </div>
             </div>
             <div class="historia-image" data-aos="fade-up">
@@ -277,9 +335,9 @@ A través de mis viajes importo sabores y técnicas de los países que visito, e
             <div class="historia-content" data-aos="fade-left">
                 <h2>Nuestro arte</h2>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <p style="margin: 0; text-align: justify;">La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros que adornan nuestras paredes han sido creados con mucho cariño por mí y por mi madre. Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la dedicación que ponemos en cada detalle de nuestro local.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="decoracion">La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros que adornan nuestras paredes han sido creados con mucho cariño por mí y por mi madre. Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la dedicación que ponemos en cada detalle de nuestro local.</p>
                     
-                    <p style="margin: 0; text-align: justify;">Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y personal, haciendo que cada visita sea una experiencia más cálida y auténtica para nuestros clientes. Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de significado.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="cuadros">Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y personal, haciendo que cada visita sea una experiencia más cálida y auténtica para nuestros clientes. Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de significado.</p>
                 </div>
             </div>
         </div>
@@ -293,15 +351,15 @@ A través de mis viajes importo sabores y técnicas de los países que visito, e
                 </h2>
                 
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <p style="margin: 0; text-align: justify;">Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante. Haber sido galardonados con la Guía Michelin en 2023 y 2024, así como con el premio Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="reconocimientos">Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante. Haber sido galardonados con la Guía Michelin en 2023 y 2024, así como con el premio Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.</p>
                     
-                    <p style="margin: 0; text-align: justify;">Estos premios no solo representan la calidad de nuestra comida y servicio, sino también el esfuerzo diario de todo nuestro equipo para ofrecer una experiencia memorable.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="premios">Estos premios no solo representan la calidad de nuestra comida y servicio, sino también el esfuerzo diario de todo nuestro equipo para ofrecer una experiencia memorable.</p>
                     
-                    <p style="margin: 0; text-align: justify;">La Guía Michelin es uno de los reconocimientos más prestigiosos en el mundo de la gastronomía, y que nos hayan otorgado estas distinciones en dos años consecutivos nos impulsa a seguir innovando y mejorando cada día.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="michelin">La Guía Michelin es uno de los reconocimientos más prestigiosos en el mundo de la gastronomía, y que nos hayan otorgado estas distinciones en dos años consecutivos nos impulsa a seguir innovando y mejorando cada día.</p>
                     
-                    <p style="margin: 0; text-align: justify;">El premio Tapas 2023, por su parte, refleja nuestro compromiso por ofrecer sabores auténticos y creativos en cada bocado, buscando siempre sorprender y deleitar a nuestros clientes.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="tapas">El premio Tapas 2023, por su parte, refleja nuestro compromiso por ofrecer sabores auténticos y creativos en cada bocado, buscando siempre sorprender y deleitar a nuestros clientes.</p>
                     
-                    <p style="margin: 0; text-align: justify;">Para nosotros, estos reconocimientos son un testimonio del cariño y confianza que nos brindan, y nos motivan a seguir trabajando con entusiasmo para que cada visita a nuestro restaurante sea especial.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="motivacion">Para nosotros, estos reconocimientos son un testimonio del cariño y confianza que nos brindan, y nos motivan a seguir trabajando con entusiasmo para que cada visita a nuestro restaurante sea especial.</p>
                 </div>
             </div>
             <div class="historia-image" data-aos="fade-left">
@@ -314,7 +372,7 @@ A través de mis viajes importo sabores y técnicas de los países que visito, e
     </section>
 
     <div class="historia-btn-back-container">
-        <a href="index.html" class="btn-historia">
+        <a href="index.html" class="btn-historia" data-translate="volver">
             <i class="fas fa-arrow-left"></i> Volver a la página principal
         </a>
     </div>
@@ -324,7 +382,7 @@ A través de mis viajes importo sabores y técnicas de los países que visito, e
             <div class="footer-logo">
                 <img src="img/Al Norte - logo blanco.png" alt="Al Norte Logo">
             </div>
-            <p>&copy; 2025 Al Norte Restaurante. Todos los derechos reservados.</p>
+            <p data-translate="copyright">&copy; 2025 Al Norte Restaurante. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -370,5 +428,6 @@ A través de mis viajes importo sabores y técnicas de los países que visito, e
             });
         });
     </script>
+    <script src="js/translator.js"></script>
 </body>
 </html> 

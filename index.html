@@ -21,6 +21,60 @@
             background-color: #f9f7f5;
         }
         
+        /* Estilos para el selector de idioma */
+        .language-selector {
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn-language {
+            background-color: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            padding: 5px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-language i {
+            margin-right: 5px;
+        }
+        
+        .btn-language:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Estilo para cuando el navbar tiene scroll */
+        nav.scrolled .btn-language {
+            color: #611718;
+            border-color: rgba(97, 23, 24, 0.4);
+        }
+        
+        nav.scrolled .btn-language:hover {
+            background-color: rgba(97, 23, 24, 0.1);
+            border-color: rgba(97, 23, 24, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .language-selector {
+                position: absolute;
+                top: 16px;
+                right: 60px;
+            }
+            
+            .btn-language {
+                font-size: 0.8rem;
+                padding: 4px 8px;
+            }
+        }
+        
+        /* Eventos destacados */
         .eventos-destacados-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -236,6 +290,11 @@
                 <a href="eventos.html">Eventos</a>
                 <a href="#musica">Música</a>
                 <a href="#contacto">Contacto</a>
+            </div>
+            <div class="language-selector">
+                <button id="btn-language" class="btn-language">
+                    <i class="fas fa-globe"></i> ES / EN
+                </button>
             </div>
             <div class="mobile-menu-btn">
                 <span></span>
@@ -527,14 +586,79 @@ relajarse, disfrutar y sentirse como en casa.
                     <p class="reproductor-desc">Descubre la música que inspira nuestros platos</p>
                 </div>
                 <div class="playlist">
-                    <div class="playlist-item" data-audio="audio/plato1.mp3">
+                    <div class="playlist-item" data-audio="audio/represent.mp3">
                         <div class="track-info">
                             <div class="track-details">
-                                <h4>Fiebre - Bad Gyal</h4>
+                                <h4>Represent - Orishas</h4>
                             </div>
                         </div>
                         <div class="track-controls">
-                            <span class="track-duration">4:08</span>
+                            <span class="track-duration">3:46</span>
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="playlist-item" data-audio="audio/ComoYo.mp3">
+                        <div class="track-info">
+                            <div class="track-details">
+                                <h4>Como yo - Juan Luis Guerra</h4>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <span class="track-duration">3:25</span>
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="playlist-item" data-audio="audio/gotan.mp3">
+                        <div class="track-info">
+                            <div class="track-details">
+                                <h4>Santa María - Gotan Project</h4>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <span class="track-duration">5:30</span>
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="playlist-item" data-audio="audio/overdrive.mp3">
+                        <div class="track-info">
+                            <div class="track-details">
+                                <h4>Overdrive - Ofenbach</h4>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <span class="track-duration">2:36</span>
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="playlist-item" data-audio="audio/paul.mp3">
+                        <div class="track-info">
+                            <div class="track-details">
+                                <h4>Different time - Swimming Paul</h4>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <span class="track-duration">3:17</span>
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="playlist-item" data-audio="audio/crave.mp3">
+                        <div class="track-info">
+                            <div class="track-details">
+                                <h4>Crave - Pharrell Williams</h4>
+                            </div>
+                        </div>
+                        <div class="track-controls">
+                            <span class="track-duration">2:55</span>
                             <button class="play-btn">
                                 <i class="fas fa-play"></i>
                             </button>
@@ -608,8 +732,8 @@ relajarse, disfrutar y sentirse como en casa.
                     <p>+34 666 32 06 32</p>
                 </div>
                 <div class="info-item">
-                    <i class="fas fa-envelope"></i>
-                    <p>info@alnorte.com</p>
+                    <i class="fab fa-whatsapp"></i>
+                    <p><a href="https://wa.me/34666320632" target="_blank" style="color: inherit; text-decoration: none;">Escríbenos por WhatsApp</a></p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-clock"></i>
@@ -642,5 +766,6 @@ relajarse, disfrutar y sentirse como en casa.
     <script src="js/musica.js"></script>
     <link rel="stylesheet" href="css/carta-carousel-3d.css">
     <script src="js/carta-carousel-3d.js"></script>
+    <script src="js/translator.js"></script>
 </body>
 </html>

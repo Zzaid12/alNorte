@@ -6,7 +6,9 @@ const cartaCarousel3dImages = [
   'img/plato4.jpg',
   'img/plato5.jpg',
   'img/plato6.jpg',
-  'img/plato7.jpg'
+  'img/plato7.jpg',
+  'img/VINOS.jpg',
+  'img/postre.jpeg'
 ];
 let cartaCarousel3dCurrent = 0;
 let cartaCarousel3dInterval = null;

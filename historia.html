@@ -14,69 +14,146 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
+        /* Prevenir scroll horizontal */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
         @media (max-width: 768px) {
-            .historia-section.historia-premios {
-                padding: 1.5rem 0;
+            /* Ajustes para el nav en móvil */
+            nav {
+                padding: 1rem 15px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .logo {
+                max-width: 120px;
+            }
+
+            .language-selector {
+                position: absolute;
+                top: 16px;
+                right: 50px;
+                margin-left: 0;
             }
             
-            .historia-content p {
-                margin-bottom: 0.5rem;
+            .mobile-menu-btn {
+                position: absolute;
+                right: 15px;
+                top: 16px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                transition: right 0.3s ease;
+                z-index: 1001;
             }
             
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                z-index: 1000;
+                display: none;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                cursor: pointer;
+                z-index: 1002;
+            }
+            
+            .mobile-menu-btn span {
+                width: 100%;
+                height: 3px;
+                background-color: white;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            /* Ajustes para el contenido */
             .historia-container {
                 padding: 0 15px;
-                flex-direction: column !important;
-            }
-            
-            .historia-premios .historia-content > div {
-                gap: 0.5rem !important;
+                width: 100%;
+                box-sizing: border-box;
             }
 
-            .historia-content h2 {
-                font-size: 2.2rem !important;
-                margin-bottom: 1rem !important;
-            }
+            .historia-content, 
+            .historia-image {
+                width: 100%;
 
-            .historia-section {
-                padding: 2rem 0;
-                margin-bottom: 1rem;
+                padding: 0 5px;
             }
 
             .historia-image img {
-                border-radius: 8px;
                 width: 100%;
-                box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-                transition: transform 0.3s ease;
-            }
-            
-            /* Ordenar contenido en móvil - contenido siempre primero */
-            .historia-section .historia-content {
-                order: 1 !important;
-                width: 100%;
-                margin-bottom: 1.5rem;
-            }
-            
-            .historia-section .historia-image {
-                order: 2 !important;
-                margin-top: 1.5rem;
-                width: 100%;
-            }
-            
-            /* Alineación de imágenes en reconocimientos */
-            .historia-premios-imgs {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
-            
-            .historia-premios-imgs img {
                 max-width: 100%;
-                margin-bottom: 1.5rem;
+                height: auto;
             }
-            
-            .historia-premios-imgs img:last-child {
-                margin-bottom: 0;
+
+            .historia-content p {
+                padding: 0;
+                margin: 0 0 0.75rem 0;
+            }
+
+            .historia-premios-imgs {
+                padding: 0;
+            }
+
+            .historia-premios-imgs img {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .btn-historia {
+                width: 100%;
+                max-width: 300px;
+                box-sizing: border-box;
+            }
+
+            /* Cambiar imagen de fondo del hero en mobile */
+            .historia-hero .hero-bg {
+                background-image: url('img/CARTA2.jpg') !important;
+                background-position: bottom center !important;
             }
         }
 
@@ -91,10 +168,22 @@
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 3rem;
         }
         
-        .historia-content, .historia-image {
-            flex: 1 1 45%;
+        .historia-content {
+            flex: 1; /* El contenido ocupa 1 parte */
+            min-width: 300px;
+        }
+        
+        .historia-image {
+            flex: 1.2; /* La imagen ocupa 1.2 partes, haciéndola un poco más grande */
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
         
         /* Estilos generales para las imágenes */
@@ -224,8 +313,8 @@
         
         .btn-language {
             background-color: transparent;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff !important;
+            border: 1px solid rgba(255,255,255,0.7) !important;
             border-radius: 4px;
             padding: 5px 12px;
             font-size: 0.9rem;
@@ -240,19 +329,21 @@
         }
         
         .btn-language:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255,255,255,0.1) !important;
+            color: #fff !important;
+            border-color: #fff !important;
         }
         
         /* Estilo para cuando el navbar tiene scroll */
         nav.scrolled .btn-language {
-            color: #611718;
-            border-color: rgba(97, 23, 24, 0.4);
+            color: #fff !important;
+            border-color: #fff !important;
         }
         
         nav.scrolled .btn-language:hover {
-            background-color: rgba(97, 23, 24, 0.1);
-            border-color: rgba(97, 23, 24, 0.6);
+            background-color: rgba(255,255,255,0.1) !important;
+            color: #fff !important;
+            border-color: #fff !important;
         }
         
         @media (max-width: 768px) {
@@ -266,6 +357,53 @@
                 font-size: 0.8rem;
                 padding: 4px 8px;
             }
+        }
+
+        .historia-section {
+            padding: 2rem 0;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+
+        .historia-image img {
+            border-radius: 8px;
+            width: 100%;
+            max-width: 100%;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Ordenar contenido en móvil - contenido siempre primero */
+        .historia-section .historia-content {
+            order: 1 !important;
+            width: 100%;
+            margin-bottom: 1.5rem;
+            padding: 0 10px;
+        }
+        
+        .historia-section .historia-image {
+            order: 2 !important;
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 0 10px;
+            /* Eliminar recuadro en mobile */
+            border-radius: 0;
+            box-shadow: none;
+        }
+        
+        /* Alineación de imágenes en reconocimientos */
+        .historia-premios-imgs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 0;
+        }
+        
+        .historia-premios-imgs img {
+            max-width: 100%;
+            width: 100%;
+            margin-bottom: 1.5rem;
         }
     </style>
 </head>
@@ -282,7 +420,6 @@
                 <a href="index.html">Inicio</a>
                 <a href="index.html#carta">Carta</a>
                 <a href="#historia">Historia</a>
-                <a href="eventos.html">Eventos</a>
                 <a href="index.html#musica">Música</a>
                 <a href="index.html#contacto">Contacto</a>
             </div>
@@ -312,17 +449,19 @@
                 <h2>Nuestro origen</h2>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
                     <p style="margin: 0; text-align: justify;" data-translate="intro">¡Hola! Me presento, soy Ruth, la propietaria de Al Norte. 
-A través de mis viajes importo sabores y técnicas de los países que visito, enriqueciendo constantemente nuestro repertorio y abriendo nuestras mentes y paladares a nuevas sensaciones. Mi maravilloso equipo formado por -NOMBRES- aporta su pasión y trayectoria para crear una experiencia única en la cocina.</p>
+                        A través de mis viajes importo
+                        sabores y técnicas de los países que visito, enriqueciendo constantemente nuestro
+                        repertorio y abriendo nuestras mentes y paladares a nuevas sensaciones. Mi maravilloso
+                        equipo, formado por Adriana, Omar, Victor y Daniel, aporta su pasión y trayectoria para crear una experiencia
+                        única en la cocina y la sala.</p>
                     
-                    <p style="margin: 0; text-align: justify;" data-translate="cocina">Nuestra cocina es un espacio abierto, un lugar donde la creatividad y el amor por lo que hacemos se fusionan. Para nosotros, la cocina es una forma de decir "te quiero".</p>
-                    
-                    <p style="margin: 0; text-align: justify;" data-translate="amor">Amamos nuestro trabajo, nuestra cocina y, sobre todo, a nuestros clientes. Es nuestra manera de cuidarles, de hacerles disfrutar y de transmitirles todo nuestro cariño a través de cada plato.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="cocina">Nuestra cocina es un espacio abierto, un lugar donde la creatividad y el amor por lo que hacemos se fusionan. Para nosotros, la cocina es una forma de decir "te quiero".Amamos nuestro trabajo, nuestra cocina y, sobre todo, a nuestros clientes. Es nuestra manera de cuidarles, de hacerles disfrutar y de transmitirles todo nuestro cariño a través de cada plato.</p>
                     
                     <p style="margin: 0; text-align: justify;" data-translate="filosofia">Nuestra filosofía se basa en el slow food, en disfrutar cada momento, en vivir despacio para saborear cada detalle.</p>
                 </div>
             </div>
             <div class="historia-image" data-aos="fade-up">
-                <img src="img/restaurante.jpg" alt="Historia del restaurante">
+                <img src="img/COCINA2.jpeg" alt="Historia del restaurante">
             </div>
         </div>
     </section>
@@ -335,9 +474,12 @@ A través de mis viajes importo sabores y técnicas de los países que visito, e
             <div class="historia-content" data-aos="fade-left">
                 <h2>Nuestro arte</h2>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <p style="margin: 0; text-align: justify;" data-translate="decoracion">La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros que adornan nuestras paredes han sido creados con mucho cariño por mí y por mi madre. Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la dedicación que ponemos en cada detalle de nuestro local.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="decoracion">La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros que adornan nuestras paredes han sido creados con mucho cariño por mí, por mi madre y amigos/as. Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la dedicación que ponemos en cada detalle de nuestro local.</p>
                     
-                    <p style="margin: 0; text-align: justify;" data-translate="cuadros">Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y personal, haciendo que cada visita sea una experiencia más cálida y auténtica para nuestros clientes. Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de significado.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="cuadros">Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y personal, haciendo que cada visita sea una experiencia más cálida y auténtica para nuestros clientes. </p>
+                    <p style="margin: 0; text-align: justify;" data-translate="cuadros">Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro
+                        compromiso por ofrecer un ambiente acogedor y lleno de significado, por lo que si quieres
+                        formar parte… ¡No dudes en hablar con nosotros!</p>
                 </div>
             </div>
         </div>
@@ -351,7 +493,11 @@ A través de mis viajes importo sabores y técnicas de los países que visito, e
                 </h2>
                 
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <p style="margin: 0; text-align: justify;" data-translate="reconocimientos">Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante. Haber sido galardonados con la Guía Michelin en 2023 y 2024, así como con el premio Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.</p>
+                    <p style="margin: 0; text-align: justify;" data-translate="reconocimientos">Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble
+                        equipo en nuestro restaurante. Haber sido galardonados con el reconocimiento de la Guía
+                        Michelin desde el año 2022, así como con el premio T de Oro a la chef revelación de
+                        Extremadura de Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan
+                        a seguir trabajando con pasión y dedicación.</p>
                     
                     <p style="margin: 0; text-align: justify;" data-translate="premios">Estos premios no solo representan la calidad de nuestra comida y servicio, sino también el esfuerzo diario de todo nuestro equipo para ofrecer una experiencia memorable.</p>
                     

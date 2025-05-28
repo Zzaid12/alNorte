@@ -73,21 +73,16 @@ const translations = {
     // Historia
     'Nuestra Historia': 'Our Story',
     'Conoce toda nuestra historia': 'Learn our full story',
-    '¡Hola! Me presento, soy Ruth, la propietaria de Al Norte.': 'Hello! Let me introduce myself, I\'m Ruth, the owner of Al Norte.',
-    'A través de mis viajes importo sabores y técnicas de los países que visito, enriqueciendo constantemente nuestro repertorio y abriendo nuestras mentes y paladares a nuevas sensaciones.': 'Through my travels, I import flavors and techniques from the countries I visit, constantly enriching our repertoire and opening our minds and palates to new sensations.',
-    'Mi maravilloso equipo formado por -NOMBRES- aporta su pasión y trayectoria para crear una experiencia única en la cocina.': 'My wonderful team formed by -NAMES- brings their passion and experience to create a unique experience in the kitchen.',
+    '¡Hola! Me presento, soy Ruth, la propietaria de Al Norte. \nA través de mis viajes importo sabores y técnicas de los países que visito, enriqueciendo constantemente nuestro repertorio y abriendo nuestras mentes y paladares a nuevas sensaciones. Mi maravilloso equipo, formado por Adriana, Omar, Victor y Daniel, aporta su pasión y trayectoria para crear una experiencia única en la cocina y la sala.': 'Hello! Let me introduce myself, I\'m Ruth, the owner of Al Norte. \nThrough my travels, I import flavors and techniques from the countries I visit, constantly enriching our repertoire and opening our minds and palates to new sensations. My wonderful team, formed by Adriana, Omar, Victor and Daniel, brings their passion and experience to create a unique experience in the kitchen and the restaurant room.',
     'Nuestro origen': 'Our origins',
-    'Nuestra cocina es un espacio abierto, un lugar donde la creatividad y el amor por lo que hacemos se fusionan. Para nosotros, la cocina es una forma de decir "te quiero".': 'Our kitchen is an open space, a place where creativity and love for what we do merge. For us, cooking is a way of saying "I love you".',
-    'Amamos nuestro trabajo, nuestra cocina y, sobre todo, a nuestros clientes. Es nuestra manera de cuidarles, de hacerles disfrutar y de transmitirles todo nuestro cariño a través de cada plato.': 'We love our work, our cuisine and, above all, our customers. It is our way of taking care of them, making them enjoy and transmitting all our affection through each dish.',
+    'Nuestra cocina es un espacio abierto, un lugar donde la creatividad y el amor por lo que hacemos se fusionan. Para nosotros, la cocina es una forma de decir "te quiero".Amamos nuestro trabajo, nuestra cocina y, sobre todo, a nuestros clientes. Es nuestra manera de cuidarles, de hacerles disfrutar y de transmitirles todo nuestro cariño a través de cada plato.': 'Our kitchen is an open space, a place where creativity and love for what we do merge. For us, cooking is a way of saying "I love you".We love our work, our cuisine and, above all, our customers. It is our way of taking care of them, making them enjoy and transmitting all our affection through each dish.',
     'Nuestra filosofía se basa en el slow food, en disfrutar cada momento, en vivir despacio para saborear cada detalle.': 'Our philosophy is based on slow food, enjoying each moment, living slowly to savor every detail.',
     'Nuestro arte': 'Our art',
-    'La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros que adornan nuestras paredes han sido creados con mucho cariño por mí y por mi madre.': 'The decoration of our restaurant is very special to us, as the paintings that adorn our walls have been created with great care by myself and my mother.',
-    'Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la dedicación que ponemos en cada detalle de nuestro local.': 'Each work reflects not only our talent and passion for art, but also the love and dedication we put into every detail of our venue.',
+    'La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros que adornan nuestras paredes han sido creados con mucho cariño por mí, por mi madre y amigos/as. Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la dedicación que ponemos en cada detalle de nuestro local.': 'The decoration of our restaurant is very special to us, as the paintings that adorn our walls have been created with great care by myself, my mother and friends. Each work reflects not only our talent and passion for art, but also the love and dedication we put into every detail of our venue.',
     'Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y personal, haciendo que cada visita sea una experiencia más cálida y auténtica para nuestros clientes.': 'These paintings not only beautify the space, but also give it a unique and personal touch, making each visit a warmer and more authentic experience for our customers.',
-    'Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de significado.': 'For us, these paintings represent an important part of our history and our commitment to offer a cozy and meaningful environment.',
+    'Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de significado, por lo que si quieres formar parte… ¡No dudes en hablar con nosotros!': 'For us, these paintings represent an important part of our history and our commitment to offer a cozy and meaningful environment, so if you want to be a part of it... don\'t hesitate to talk to us!',
     'Nuestros reconocimientos': 'Our recognitions',
-    'Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante.': 'I am proud to share some of the achievements that I have reached together with my incredible team in our restaurant.',
-    'Haber sido galardonados con la Guía Michelin en 2023 y 2024, así como con el premio Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.': 'Having been awarded the Michelin Guide in 2023 and 2024, as well as the Tapas 2023 award, are recognitions that fill us with joy and motivate us to continue working with passion and dedication.',
+    'Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante. Haber sido galardonados con el reconocimiento de la Guía Michelin desde el año 2022, así como con el premio T de Oro a la chef revelación de Extremadura de Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.': 'I am proud to share some of the achievements that I have reached together with my incredible team in our restaurant. Having been awarded the recognition of the Michelin Guide since 2022, as well as the T de Oro award for Extremadura\'s breakthrough chef at Tapas 2023, are recognitions that fill us with joy and motivate us to continue working with passion and dedication.',
     'Estos premios no solo representan la calidad de nuestra comida y servicio, sino también el esfuerzo diario de todo nuestro equipo para ofrecer una experiencia memorable.': 'These awards not only represent the quality of our food and service, but also the daily effort of our entire team to offer a memorable experience.',
     'La Guía Michelin es uno de los reconocimientos más prestigiosos en el mundo de la gastronomía, y que nos hayan otorgado estas distinciones en dos años consecutivos nos impulsa a seguir innovando y mejorando cada día.': 'The Michelin Guide is one of the most prestigious recognitions in the world of gastronomy, and having been awarded these distinctions in two consecutive years encourages us to continue innovating and improving every day.',
     'El premio Tapas 2023, por su parte, refleja nuestro compromiso por ofrecer sabores auténticos y creativos en cada bocado, buscando siempre sorprender y deleitar a nuestros clientes.': 'The Tapas 2023 award, for its part, reflects our commitment to offer authentic and creative flavors in every bite, always looking to surprise and delight our customers.',
@@ -176,7 +171,9 @@ const translations = {
     
     'La decoración de nuestro restaurante es muy especial para nosotros, ya que los cuadros que adornan nuestras paredes han sido creados con mucho cariño por mí y por mi madre. Cada obra refleja no solo nuestro talento y pasión por el arte, sino también el amor y la dedicación que ponemos en cada detalle de nuestro local.': 'The decoration of our restaurant is very special to us, as the paintings that adorn our walls have been created with great care by myself and my mother. Each work reflects not only our talent and passion for art, but also the love and dedication we put into every detail of our venue.',
     
-    'Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y personal, haciendo que cada visita sea una experiencia más cálida y auténtica para nuestros clientes. Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de significado.': 'These paintings not only beautify the space, but also give it a unique and personal touch, making each visit a warmer and more authentic experience for our customers. For us, these paintings represent an important part of our history and our commitment to offer a cozy and meaningful environment.',
+    'Estos cuadros no solo embellecen el espacio, sino que también le dan un toque único y personal, haciendo que cada visita sea una experiencia más cálida y auténtica para nuestros clientes.': 'These paintings not only beautify the space, but also give it a unique and personal touch, making each visit a warmer and more authentic experience for our customers.',
+    
+    'Para nosotros, estos cuadros representan una parte importante de nuestra historia y nuestro compromiso por ofrecer un ambiente acogedor y lleno de significado.': 'For us, these paintings represent an important part of our history and our commitment to offer a cozy and meaningful environment.',
     
     'Me llena de orgullo compartir algunos de los logros que he alcanzado junto a mi increíble equipo en nuestro restaurante. Haber sido galardonados con la Guía Michelin en 2023 y 2024, así como con el premio Tapas 2023, son reconocimientos que nos llenan de alegría y nos motivan a seguir trabajando con pasión y dedicación.': 'I am proud to share some of the achievements that I have reached together with my incredible team in our restaurant. Having been awarded the Michelin Guide in 2023 and 2024, as well as the Tapas 2023 award, are recognitions that fill us with joy and motivate us to continue working with passion and dedication.',
     
@@ -193,15 +190,15 @@ const translations = {
     'volver': '<i class="fas fa-arrow-left"></i> Back to main page',
     
     // Historia - Traducciones para atributos data-translate
-    'intro': 'Hello! Let me introduce myself, I\'m Ruth, the owner of Al Norte. \nThrough my travels, I import flavors and techniques from the countries I visit, constantly enriching our repertoire and opening our minds and palates to new sensations. My wonderful team formed by -NAMES- brings their passion and experience to create a unique experience in the kitchen.',
-    'cocina': 'Our kitchen is an open space, a place where creativity and love for what we do merge. For us, cooking is a way of saying "I love you".',
+    'intro': 'Hello! Let me introduce myself, I\'m Ruth, the owner of Al Norte. \nThrough my travels, I import flavors and techniques from the countries I visit, constantly enriching our repertoire and opening our minds and palates to new sensations. My wonderful team, formed by Adriana, Omar, Victor and Daniel, brings their passion and experience to create a unique experience in the kitchen and dining room.',
+    'cocina': 'Our kitchen is an open space, a place where creativity and love for what we do merge. For us, cooking is a way of saying "I love you".We love our work, our cuisine and, above all, our customers. It is our way of taking care of them, making them enjoy and transmitting all our affection through each dish.',
     'amor': 'We love our work, our cuisine and, above all, our customers. It is our way of taking care of them, making them enjoy and transmitting all our affection through each dish.',
     'filosofia': 'Our philosophy is based on slow food, enjoying each moment, living slowly to savor every detail.',
-    'decoracion': 'The decoration of our restaurant is very special to us, as the paintings that adorn our walls have been created with great care by myself and my mother. Each work reflects not only our talent and passion for art, but also the love and dedication we put into every detail of our venue.',
+    'decoracion': 'The decoration of our restaurant is very special to us, as the paintings that adorn our walls have been created with great care by myself, my mother and friends. Each work reflects not only our talent and passion for art, but also the love and dedication we put into every detail of our venue.',
     'cuadros': 'These paintings not only beautify the space, but also give it a unique and personal touch, making each visit a warmer and more authentic experience for our customers. For us, these paintings represent an important part of our history and our commitment to offer a cozy and meaningful environment.',
-    'reconocimientos': 'I am proud to share some of the achievements that I have reached together with my incredible team in our restaurant. Having been awarded the Michelin Guide in 2023 and 2024, as well as the Tapas 2023 award, are recognitions that fill us with joy and motivate us to continue working with passion and dedication.',
+    'reconocimientos': 'I am proud to share some of the achievements that I have reached together with my incredible team in our restaurant. Having been awarded the recognition of the Michelin Guide since 2022, as well as the T de Oro award for Extremadura\'s breakthrough chef at Tapas 2023, are recognitions that fill us with joy and motivate us to continue working with passion and dedication.',
     'premios': 'These awards not only represent the quality of our food and service, but also the daily effort of our entire team to offer a memorable experience.',
-    'michelin': 'The Michelin Guide is one of the most prestigious recognitions in the world of gastronomy, and having been awarded these distinctions in two consecutive years encourages us to continue innovating and improving every day.',
+    'michelin': 'The Michelin Guide is one of the most prestigious recognitions in the world of gastronomy, and that we have been awarded these distinctions in two consecutive years encourages us to continue innovating and improving every day.',
     'tapas': 'The Tapas 2023 award, for its part, reflects our commitment to offer authentic and creative flavors in every bite, always looking to surprise and delight our customers.',
     'motivacion': 'For us, these recognitions are a testimony of the affection and trust that they give us, and they motivate us to continue working with enthusiasm so that each visit to our restaurant is special.',
 };
@@ -215,10 +212,12 @@ function toggleLanguage() {
     
     // Actualizar el botón
     const btnLanguage = document.getElementById('btn-language');
-    if (isEnglish) {
-        btnLanguage.innerHTML = '<i class="fas fa-globe"></i> EN / ES';
-    } else {
-        btnLanguage.innerHTML = '<i class="fas fa-globe"></i> ES / EN';
+    if (btnLanguage) {
+        if (isEnglish) {
+            btnLanguage.innerHTML = '<i class="fas fa-globe"></i> EN / ES';
+        } else {
+            btnLanguage.innerHTML = '<i class="fas fa-globe"></i> ES / EN';
+        }
     }
     
     // Actualizar el título de la página
@@ -267,6 +266,20 @@ function toggleLanguage() {
                     el.innerHTML = translations[text];
                     // Añadir una clase para indicar que ha sido traducido
                     el.classList.add('translated');
+                } else {
+                     // Intentar con variaciones del texto para párrafos con estilos inline
+                    // que pueden tener diferentes espacios/saltos
+                    const normalizedText = text.replace(/\s+/g, ' ');
+                    for (const [key, value] of Object.entries(translations)) {
+                        // Normalizar la clave del diccionario también
+                        const normalizedKey = key.replace(/\s+/g, ' ');
+                        // Si el texto normalizado del elemento es igual o muy parecido a la clave normalizada
+                        if (normalizedText.includes(normalizedKey) || normalizedKey.includes(normalizedText)) {
+                            el.innerHTML = value;
+                            el.classList.add('translated');
+                            break;
+                        }
+                    }
                 }
             } else if (!isEnglish) {
                 // Usar el HTML original si está disponible
@@ -390,4 +403,4 @@ document.addEventListener('DOMContentLoaded', function() {
 // Guardar la preferencia de idioma cuando el usuario cambia
 window.addEventListener('beforeunload', function() {
     localStorage.setItem('preferredLanguage', isEnglish ? 'en' : 'es');
-}); 
+});
